@@ -1,0 +1,14 @@
+# Chặn các file rác của LaTeX
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.lof
+*.lot
+*.pdf
+
+# Chặn thư mục và file tạm của gói minted (đống file tím trong SourceTree)
+_minted*
+*.minted
+*.highlight.minted
