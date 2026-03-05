@@ -1,0 +1,204 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{tikz} % Gói dùng để vẽ hình
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{fontspec} % Để hỗ trợ Unicode
+\usepackage{polyglossia} % Thay thế babel để hỗ trợ nhiều ngôn ngữ tốt hơn
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{minted}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{listings}
+
+% Định nghĩa macro vẽ Venn để dùng lại cho từng bài
+% Cú pháp: \venn{Label S}{Label P}{Label M}{Shading Code}{X Mark Code}
+% Lệnh vẽ sơ đồ Venn chuẩn
+% #1: Nhãn S, #2: Nhãn P, #3: Nhãn M
+% #4: Code tô màu (Shading)
+% #5: Code đánh dấu X
+\newcommand{\venn}[5]{
+    \begin{center}
+    \begin{tikzpicture}[scale=0.7]
+        \coordinate (S) at (0,0);
+        \coordinate (P) at (0:2.5cm);
+        \coordinate (M) at (60:2.5cm);
+        \def\R{1.8cm}
+        \begin{scope} #4 \end{scope}
+        \draw (S) circle (\R) node[below left] {S (#1)};
+        \draw (P) circle (\R) node[below right] {P (#2)};
+        \draw (M) circle (\R) node[above] {M (#3)};
+        \node at (-1.5, -1.0) {\textbf{S}};
+        \node at (4.0, -1.0) {\textbf{P}};
+        \node at (1.25, 3.2) {\textbf{M}};
+        #5
+    \end{tikzpicture}
+    \end{center}
+}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{shapes,backgrounds}
+
+
+% Định nghĩa lệnh vẽ Sơ đồ Venn 3 vòng tròn
+% Cú pháp: \VennDiagram{ShadeOptions}{TextOptions}{Caption}
+% ShadeOptions: Các lệnh \fill hoặc \pattern để tô màu vùng
+% TextOptions: Các lệnh \node để đặt dấu X hoặc văn bản
+\newcommand{\VennDiagram}[3]{
+    \begin{center}
+    \begin{tikzpicture}[scale=0.8]
+        % Định nghĩa tọa độ tâm
+        \coordinate (S) at (0,0);
+        \coordinate (P) at (3,0);
+        \coordinate (M) at (1.5, 2.6);
+
+        % Tô màu (Shading) - Được truyền vào từ tham số #1
+        \begin{scope}
+            \fill[white] (-2,-2) rectangle (5,5); % Nền trắng
+            #1
+        \end{scope}
+
+        % Vẽ viền 3 vòng tròn
+        \draw[thick] (S) circle (1.8cm) node[below left] {S (Tiểu từ)};
+        \draw[thick] (P) circle (1.8cm) node[below right] {P (Đại từ)};
+        \draw[thick] (M) circle (1.8cm) node[above] {M (Trung từ)};
+        
+        % Nhãn S, P, M cho các vòng tròn
+        \node at (-1.2, 1.5) {}; 
+        
+        % Các ký hiệu bổ sung (dấu X) - Được truyền vào từ tham số #2
+        #2
+        
+    \end{tikzpicture}
+    \\ \textbf{#3}
+    \end{center}
+}
+
+% Tiện ích tô màu các vùng giao nhau
+\def\ShadeSnotPM{\clip (0,0) circle (1.8cm); \fill[gray!40] (3,0) circle (1.8cm) (1.5, 2.6) circle (1.8cm) (-2,-2) rectangle (5,5);} 
+
+
+\setmainlanguage{vietnamese} % Đặt ngôn ngữ chính là tiếng Việt
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+
+\pagenumbering{roman}
+% Điều chỉnh khoảng cách dọc để logo và tên trường không sát đường kẻ
+\lhead{
+  \vspace{0.2cm} % Tạo khoảng cách giữa nội dung header và đường kẻ header
+  \raisebox{-0.1cm}{\includegraphics[height=0.7cm]{Logo BK.png}} % Điều chỉnh vị trí logo
+  \quad % Khoảng cách giữa logo và tên trường
+  \texttt{Trường Đại học Bách Khoa ĐHQG-HCM}
+}
+
+\fancyfoot{}
+\lfoot{\texttt{\small Tên học phần}}
+\rfoot{\texttt{\small Trang \thepage/ \romannumeral 4}}
+
+% Đặt độ dày của đường kẻ
+\renewcommand{\footrulewidth}{0.8pt}
+\renewcommand{\headrulewidth}{0.8pt}
+
+% Định nghĩa môi trường mysize cho cỡ chữ 13pt
+\newenvironment{mysize}{%
+    \begingroup
+    \fontsize{13pt}{15pt}\selectfont
+}{%
+    \endgroup
+}
+
+
+
+% Thay đổi cách đánh số bảng theo section
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+
+\setlength{\headheight}{27.2pt}  % hoặc giá trị >= 27.1119pt
+\addtolength{\topmargin}{-15pt}  % tùy chỉnh nếu cần
+
+\begin{document}
+
+\include{source/content/title}
+%\include{source/content/title2}
+
+\input{source/content/mission_table.tex}
+
+\include{source/content/front/intro.tex}
+\input{source/content/front/thanks.tex}
+\input{source/content/front/declaration.tex}
+\newpage
+
+\begin{doublespacing}
+    \tableofcontents
+    \listoffigures 
+    \listoftables
+\end{doublespacing}
+
+\input{source/content/front/abstract_vn.tex}
+%\input{source/content/front/abstract_en.tex}
+
+\clearpage
+\fancyhead{}
+\fancyfoot{}
+
+\pagenumbering{arabic}
+% Điều chỉnh khoảng cách dọc để logo và tên trường không sát đường kẻ
+\lhead{
+  \vspace{0.2cm} % Tạo khoảng cách giữa nội dung header và đường kẻ header
+  \raisebox{-0.1cm}{\includegraphics[height=0.7cm]{Logo BK.png}} % Điều chỉnh vị trí logo
+  \quad % Khoảng cách giữa logo và tên trường
+  \texttt{Trường Đại học Bách Khoa ĐHQG-HCM}
+}
+
+\fancyfoot{}
+\lfoot{\texttt{\small Lập Trình Web (CO3050)}}
+\rfoot{\texttt{\small Trang \thepage}}
+
+% Đặt độ dày của đường kẻ
+\renewcommand{\footrulewidth}{0.8pt}
+\renewcommand{\headrulewidth}{0.8pt}
+
+\newcommand{\mychapter}[1]{%
+  \chapter*{#1}%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+
+\newcommand{\mysection}[1]{%
+\clearpage
+  \section*{#1}%
+  \addcontentsline{toc}{section}{#1}%
+  \vspace{0.3em}
+}
+
+\newcommand{\mysubsection}[1]{%
+  \subsection*{#1}%
+  \addcontentsline{toc}{subsection}{#1}%
+  \vspace{0.3em} % thêm khoảng cách nhỏ sau heading
+}
+
+\newcommand{\mysubsubsection}[1]{%
+  \subsubsection*{#1}%
+  \addcontentsline{toc}{subsubsection}{#1}%
+  \vspace{0.3em} % thêm khoảng cách nhỏ sau heading
+}
+
+\begin{mysize}
+    \doublespacing
+    \include{source/content/contents}
+\end{mysize}
+
+%\begin{thebibliography}{99}
+%\end{thebibliography}
+
+\end{document}

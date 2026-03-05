@@ -1,0 +1,103 @@
+\appendix
+\section*{Phụ lục}
+
+\section{Mã nguồn trọng tâm (rút gọn)}
+
+\subsection{\texttt{rgb2gray.v}}
+\begin{lstlisting}[style=vncode]
+// Y ≈ (77*R + 150*G + 29*B) >> 8
+module rgb2gray(
+  input  [7:0] r0,g0,b0, r1,g1,b1,
+  output [7:0] R0,G0,B0, R1,G1,B1
+);
+  integer y0,y1;
+  function [7:0] clamp8(input integer v);
+    begin if(v<0) clamp8=0; else if(v>255) clamp8=255; else clamp8=v[7:0]; end
+  endfunction
+  always @* begin
+    y0 = (77*r0 + 150*g0 + 29*b0) >> 8;
+    y1 = (77*r1 + 150*g1 + 29*b1) >> 8;
+  end
+  assign R0=clamp8(y0); assign G0=clamp8(y0); assign B0=clamp8(y0);
+  assign R1=clamp8(y1); assign G1=clamp8(y1); assign B1=clamp8(y1);
+endmodule
+\end{lstlisting}
+
+\subsection{\texttt{rgb2ycbcr.v}}
+\begin{lstlisting}[style=vncode]
+// BT.601 limited-range (fixed-point 1/256)
+module rgb2ycbcr(
+  input  [7:0] r0,g0,b0, r1,g1,b1,
+  output [7:0] Y0,Cb0,Cr0, Y1,Cb1,Cr1
+);
+  integer y0,cb0,cr0,y1,cb1,cr1;
+  function [7:0] clamp8(input integer v);
+    begin if(v<0) clamp8=0; else if(v>255) clamp8=255; else clamp8=v[7:0]; end
+  endfunction
+  always @* begin
+    y0  = ( 77*r0 + 150*g0 + 29*b0) >>> 8;
+    y1  = ( 77*r1 + 150*g1 + 29*b1) >>> 8;
+    cb0 = ((-43*r0 - 85*g0 + 128*b0) >>> 8) + 128;
+    cb1 = ((-43*r1 - 85*g1 + 128*b1) >>> 8) + 128;
+    cr0 = ((128*r0 - 107*g0 -  21*b0) >>> 8) + 128;
+    cr1 = ((128*r1 - 107*g1 -  21*b1) >>> 8) + 128;
+  end
+  assign Y0=clamp8(y0);  assign Cb0=clamp8(cb0); assign Cr0=clamp8(cr0);
+  assign Y1=clamp8(y1);  assign Cb1=clamp8(cb1); assign Cr1=clamp8(cr1);
+endmodule
+\end{lstlisting}
+
+\section{Header Format BMP 24-bit}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}c c c p{0.45\linewidth}@{}}
+\toprule
+\textbf{Offset} & \textbf{Kích thước (byte)} & \textbf{Trường} & \textbf{Mô tả} \\
+\midrule
+0  & 2 & \texttt{Signature} & Chữ ký định dạng, luôn là \texttt{4D42} (``BM'') \\
+2  & 4 & \texttt{FileSize} & Kích thước toàn bộ tệp BMP (có thể không chính xác) \\
+6  & 2 & \texttt{Reserved1} & Dự phòng, phải bằng 0 \\
+8  & 2 & \texttt{Reserved2} & Dự phòng, phải bằng 0 \\
+10 & 4 & \texttt{DataOffset} & Vị trí bắt đầu vùng dữ liệu ảnh (byte) \\
+14 & 4 & \texttt{DIBSize} & Kích thước cấu trúc \texttt{BITMAPINFOHEADER}, luôn là 40 \\
+18 & 4 & \texttt{Width} & Chiều rộng ảnh (pixel) \\
+22 & 4 & \texttt{Height} & Chiều cao ảnh (pixel) \\
+26 & 2 & \texttt{Planes} & Số mặt phẳng ảnh, luôn là 1 \\
+28 & 2 & \texttt{BitsPerPixel} & Số bit trên mỗi pixel (1, 4, 8 hoặc 24) \\
+30 & 4 & \texttt{Compression} & Loại nén (0=không nén, 1=RLE-8, 2=RLE-4) \\
+34 & 4 & \texttt{ImageSize} & Kích thước vùng dữ liệu ảnh (gồm padding) \\
+38 & 4 & \texttt{XResolution} & Độ phân giải ngang (pixel/mét), có thể không chính xác \\
+42 & 4 & \texttt{YResolution} & Độ phân giải dọc (pixel/mét), có thể không chính xác \\
+46 & 4 & \texttt{ColorsUsed} & Số màu sử dụng, hoặc 0 nếu dùng đầy đủ \\
+50 & 4 & \texttt{ImportantColors} & Số màu quan trọng, hoặc 0 \\
+\bottomrule
+\end{tabular}
+\caption{Cấu trúc Header BMP 24-bit (File Header + DIB Header)}
+\label{tab:bmp_header}
+\end{table}
+
+\section{Quy trình tái lập}
+\begin{enumerate}
+  \item Cài Python \& Pillow: \texttt{pip install pillow}.
+  \item Chạy \texttt{image\_to\_hex.py}; chọn ảnh cần chuyển đổi, chọn kích thước ảnh muốn chuyển, bật RESIZE nếu cần; lưu file với tên \texttt{input.hex} tại thư mục \texttt{img/}.
+  \item Mở Vivado, import các file .v trong \texttt{rtl/}, \texttt{rgb_convert/}, \texttt{sim/}; đặt \texttt{tb\_simulation} là top của \texttt{sim\_1}.
+  \item Chỉnh \texttt{parameter.v} (đường dẫn \& kích thước), bật macro xử lý mong muốn.
+  \item Run simulation $\approx$ 6\,ms hoặc -all; đóng simulator sau khi thấy \texttt{write\_done\_*} lên 1.
+  \item Kiểm tra các file \texttt{output\_*.bmp}.
+\end{enumerate}
+
+\section{Ghi chú/Checklist}
+\begin{itemize}
+  \item \textbf{Clamp:} luôn giới hạn 0--255 để tránh tràn khi quy đổi.
+  \item \textbf{Padding:} mỗi dòng BMP phải là bội số của 4~byte.
+  \item \textbf{Kích thước:} giữ đồng bộ giữa script, \texttt{parameter.v} và \texttt{image\_write.v} (Đã tham số hóa).
+  \item \textbf{Đường dẫn:} ưu tiên tương đối; tránh hard-code tuyệt đối trong testbench.
+\end{itemize}
+
+\addcontentsline{toc}{section}{Nguồn tham khảo}
+
+\nocite{*}  % <-- dòng này giúp in toàn bộ tài liệu trong file .bib
+
+\bibliographystyle{ieeetr}
+\bibliography{ref.bib}

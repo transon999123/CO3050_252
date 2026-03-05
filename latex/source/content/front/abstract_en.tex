@@ -1,0 +1,22 @@
+\mysection{Project Abstract (English)}
+
+\textbf{1. Motivation, Requirements, and Significance:}  
+In the era of computer vision, processing high-resolution image streams requires high speed and ultra-low latency. Software-based solutions (CPUs) often struggle with bandwidth constraints; thus, implementing image processing algorithms directly on hardware (FPGA/ASIC) is essential. This project focuses on designing a color space conversion system from RGB to Grayscale and YCbCr. The primary requirements include creating optimized Verilog modules capable of real-time processing, ensuring mathematical precision, and supporting standard image I/O. This project is significant as it provides a foundation for high-performance image compression (JPEG), object recognition, and multimedia communication systems.
+
+\textbf{2. Background Knowledge:}  
+The system is based on the ITU-R BT.601 color space standard. While RGB represents raw data, Grayscale focuses on luminance, reducing data for analysis by two-thirds. The YCbCr space completely separates luminance (Y) from chrominance (Cb, Cr), serving as the basis for compression techniques because the human eye is more sensitive to brightness than color. Linear transformations are performed via matrix multiplication using standard coefficients, such as $Y = 0.3R + 0.59G + 0.11B$.
+
+\textbf{3. Proposed Solution and Implementation:}  
+A \textbf{high-level parallel processing architecture} combined with a Finite State Machine (FSM) is proposed. The system is implemented through four main blocks:
+\begin{itemize}
+    \item \textit{Image Reader (image\_read):} Uses an FSM (IDLE, VSYNC, HSYNC, DATA) to control the pixel flow from memory.
+    \item \textit{Processing Units (rgb2gray, rgb2ycbcr):} Perform fixed-point arithmetic. Notably, the system processes \textbf{2 pixels per clock cycle} ($PIXELS\_PER\_CLOCK = 2$), doubling the throughput.
+    \item \textit{Image Writer (image\_write):} Automatically packages the standard BMP file structure, including 54-byte header calculation and padding management.
+    \item \textit{Supporting Tools:} Python scripts to convert images to HEX format and verify output results.
+\end{itemize}
+
+\textbf{4. Achievements and Limitations:}  
+The system successfully simulated on Vivado, producing BMP images accurate in both color and format. The processing time is approximately 3.93 ms for a 768x512 image at 50MHz, meeting real-time requirements. The current limitation is that the project is restricted to Behavioral Simulation and has not yet been deployed on a physical FPGA kit due to Block RAM capacity limits when handling large images.
+
+\textbf{5. Expansion and Future Work:}  
+Future developments include connecting to a Camera via MIPI interface and outputting via HDMI will complete a full-featured Image Processing SoC.

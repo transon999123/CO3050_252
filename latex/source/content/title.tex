@@ -1,0 +1,65 @@
+% Tạo title page
+\begin{titlepage}
+    % --- KHUNG VIỀN ---
+    \begin{tikzpicture}[overlay,remember picture]
+        % Khung chính màu xanh
+        \draw [line width=3pt, color=blue!80!black]
+            ([shift={(1.5cm,-1.5cm)}]current page.north west)
+            rectangle
+            ([shift={(-1.5cm,1.5cm)}]current page.south east);
+        
+        % Khung viền mảnh bên trong (tùy chọn)
+        \draw [line width=1pt, color=blue!80!black]
+            ([shift={(1.65cm,-1.65cm)}]current page.north west)
+            rectangle
+            ([shift={(-1.65cm,1.65cm)}]current page.south east);
+
+        % Lưu ý: Để có họa tiết hoa văn ở 4 góc như trong hình, 
+        % bạn nên chèn một file ảnh vector (SVG/PDF) của cái khung đó 
+        % hoặc sử dụng các ký tự đặc biệt từ gói lệnh pgfornament.
+    \end{tikzpicture}
+
+    % --- HEADER ĐẠI HỌC ---
+    \vspace*{-0.5cm} % Đẩy nội dung lên một chút
+    \centering
+    \textbf{\normalsize ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH} \\[0.3cm]
+    \textbf{\normalsize TRƯỜNG ĐẠI HỌC BÁCH KHOA THÀNH PHỐ HỒ CHÍ MINH} \\ [0.3cm]
+    \textbf{\normalsize KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH} \\
+    \begin{center}
+        --------------------------------------------
+    \end{center}
+    \vspace{1cm}
+    
+    % --- LOGO ---
+    % Lưu ý: Tên file ảnh nên tránh dấu cách. Nếu tên file là "Logo BK.png", hãy để trong ngoặc kép hoặc đổi tên thành Logo_BK.png
+    \begin{center}
+        \includegraphics[scale=0.15]{Logo BK.png} 
+    \end{center}
+    
+    \vspace{1cm}
+
+    % --- TÊN ĐỀ TÀI ---
+    \begin{center}
+        \begin{tabular}{c} % Bảng 1 cột, căn giữa (c)
+            \textbf{\LARGE BÀI TẬP LỚN} \\
+            \textbf{\LARGE LẬP TRÌNH WEB} \\
+            \\ 
+            \hline
+            \\ 
+            \textbf{\Huge ĐỀ TÀI} \\  
+            \\ 
+            \hline
+        \end{tabular}\\
+        \vspace{0.5cm}
+        Giảng viên hướng dẫn: \textbf{Nguyễn Hữu Hiếu}
+    \end{center}
+
+    \vspace{1.5cm}
+
+    \vfill
+
+    % --- FOOTER ---
+    {\normalsize \textbf{\textit{Thành phố Hồ Chí Minh, 2/2026}}}
+    \vspace{1cm} % Khoảng cách từ chữ đến đáy trang
+
+\end{titlepage}
