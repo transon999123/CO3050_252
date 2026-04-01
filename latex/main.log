@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.4)  4 MAR 2026 10:45
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.4)  30 MAR 2026 14:58
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -638,7 +638,25 @@ File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
 Package: listings 2024/09/23 1.10c (Carsten Heinz)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip75
+\LTright=\skip76
+\LTpre=\skip77
+\LTpost=\skip78
+\LTchunksize=\count376
+\LTcapwidth=\dimen297
+\LT@head=\box81
+\LT@firsthead=\box82
+\LT@foot=\box83
+\LT@lastfoot=\box84
+\LT@gbox=\box85
+\LT@cols=\count377
+\LT@rows=\count378
+\c@LT@tables=\count379
+\c@LT@chunks=\count380
+\LT@p@ftn=\toks48
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -662,30 +680,30 @@ File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box81
-\pgfnodeparttwobox=\box82
-\pgfnodepartthreebox=\box83
-\pgfnodepartfourbox=\box84
-\pgfnodeparttwentybox=\box85
-\pgfnodepartnineteenbox=\box86
-\pgfnodeparteighteenbox=\box87
-\pgfnodepartseventeenbox=\box88
-\pgfnodepartsixteenbox=\box89
-\pgfnodepartfifteenbox=\box90
-\pgfnodepartfourteenbox=\box91
-\pgfnodepartthirteenbox=\box92
-\pgfnodeparttwelvebox=\box93
-\pgfnodepartelevenbox=\box94
-\pgfnodeparttenbox=\box95
-\pgfnodepartninebox=\box96
-\pgfnodeparteightbox=\box97
-\pgfnodepartsevenbox=\box98
-\pgfnodepartsixbox=\box99
-\pgfnodepartfivebox=\box100
+\pgfnodepartlowerbox=\box86
+\pgfnodeparttwobox=\box87
+\pgfnodepartthreebox=\box88
+\pgfnodepartfourbox=\box89
+\pgfnodeparttwentybox=\box90
+\pgfnodepartnineteenbox=\box91
+\pgfnodeparteighteenbox=\box92
+\pgfnodepartseventeenbox=\box93
+\pgfnodepartsixteenbox=\box94
+\pgfnodepartfifteenbox=\box95
+\pgfnodepartfourteenbox=\box96
+\pgfnodepartthirteenbox=\box97
+\pgfnodeparttwelvebox=\box98
+\pgfnodepartelevenbox=\box99
+\pgfnodeparttenbox=\box100
+\pgfnodepartninebox=\box101
+\pgfnodeparteightbox=\box102
+\pgfnodepartsevenbox=\box103
+\pgfnodepartsixbox=\box104
+\pgfnodepartfivebox=\box105
 ))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@layerbox@background=\box101
-\pgf@layerboxsaved@background=\box102
+\pgf@layerbox@background=\box106
+\pgf@layerboxsaved@background=\box107
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-vietnamese.ldf
 File: gloss-vietnamese.ldf polyglossia: module for Vietnamese
 )
@@ -695,26 +713,26 @@ Package polyglossia Info: Default language is vietnamese
  (./main.aux (./source/content/title.aux) (./source/content/front/intro.aux) (./source/content/contents.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 130.
-LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -757,62 +775,62 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 130.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 130.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 130.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 130.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 130.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 130.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 130.
-LaTeX Font Info:    Redeclaring math accent \check on input line 130.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 130.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 130.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 130.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 130.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 130.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 131.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 131.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 131.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 131.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 131.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 131.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 131.
+LaTeX Font Info:    Redeclaring math accent \check on input line 131.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 131.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 131.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 131.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 131.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 131.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 130.
+(Font)              `operators' in the math version `normal' on input line 131.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 130.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 131.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 130.
+(Font)              `operators' in the math version `bold' on input line 131.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 130.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 131.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 130.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 130.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 130.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 130.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 130.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 131.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 130.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 130.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 130.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 131.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 130.
-Package hyperref Info: Link coloring OFF on input line 130.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 131.
+Package hyperref Info: Link coloring OFF on input line 131.
 (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-\c@lstlisting=\count376
+\c@lstlisting=\count381
 \openout2 = `source/content/title.aux'.
 
  (./source/content/title.tex
@@ -924,8 +942,104 @@ File: Logo BK.png Graphic file (type bmp)
 [4]
 \openout2 = `source/content/contents.aux'.
 
- (./source/content/contents.tex)
-runsystem(latexminted cleantemp  --timestamp 20260304104533 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
+ (./source/content/contents.tex (./source/content/question.tex
+Overfull \hbox (18.0pt too wide) in paragraph at lines 10--11
+[][] 
+ []
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[1
+
+
+]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[2]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[3]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[4]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[5]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[6]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[7]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[8]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[9]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[10]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[11]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[12]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[13]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[14]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[15]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[16]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[17]
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+ [18]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[19]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[20]
+Overfull \hbox (18.0pt too wide) in paragraph at lines 631--632
+[][] 
+ []
+
+))
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[21]
+runsystem(latexminted cleantemp  --timestamp 20260330145820 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
 
  (./main.aux (./source/content/title.aux) (./source/content/front/intro.aux) (./source/content/contents.aux))
  ***********
@@ -933,15 +1047,15 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1A1B522034BABF41824C53107E4C6CF6;209.
+(rerunfilecheck)             Checksum: C7917D82ECD5903E00A7C277733604AD;4591.
  ) 
 Here is how much of TeX's memory you used:
- 31282 strings out of 473832
- 680722 string characters out of 5729482
- 1227556 words of memory out of 5000000
- 53817 multiletter control sequences out of 15000+600000
- 563962 words of font info for 70 fonts, out of 8000000 for 9000
+ 31410 strings out of 473832
+ 682885 string characters out of 5729482
+ 1264796 words of memory out of 5000000
+ 53938 multiletter control sequences out of 15000+600000
+ 563970 words of font info for 71 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 102i,13n,107p,478b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,13n,107p,478b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (5 pages).
+Output written on main.pdf (26 pages).

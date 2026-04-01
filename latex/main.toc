@@ -1,2 +1,16 @@
 \xpg@aux {}{vietnamese}
 \contentsline {section}{BẢNG PHÂN CÔNG VÀ ĐÁNH GIÁ}{i}{Doc-Start}%
+\contentsline {section}{\numberline {1}Phần 1: Chu kỳ dự án và Ý tưởng đầu tư}{1}{section.1}%
+\contentsline {section}{\numberline {2}Phần 2: Giai đoạn Chuẩn bị đầu tư và Các cấp độ Nghiên cứu}{5}{section.2}%
+\contentsline {section}{\numberline {3}Phần 3: Tính toán chỉ số hiệu quả tài chính NPV, IRR và Payback}{9}{section.3}%
+\contentsline {section}{\numberline {4}Phần 4: Thực hiện đầu tư, Vận hành và Biến cố dự án}{13}{section.4}%
+\contentsline {section}{\numberline {5}Câu hỏi tự luận}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Xác định ý tưởng và phát hiện cơ hội đầu tư (2.5đ)}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Đánh đổi giữa chi phí chuẩn bị và độ chính xác (2.5đ)}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Phân tích động và quyết định đầu tư (2.5đ)}{17}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Quản trị chu kỳ vận hành và thanh lý (2.5đ)}{17}{subsection.5.4}%
+\contentsline {section}{\numberline {6}BẢNG ĐÁP ÁN TỔNG HỢP}{18}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Tình huống 1: Chiến lược xác lập ý tưởng}{20}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Tình huống 2: Trade-off chi phí}{20}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Tình huống 3: Phân tích động và tài chính}{20}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Tình huống 4: Chu kỳ khép kín}{21}{subsection.6.4}%
