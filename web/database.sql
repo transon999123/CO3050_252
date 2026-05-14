@@ -83,6 +83,25 @@ CREATE TABLE `order_items` (
 ) ENGINE=InnoDB;
 
 -- ==============================================
+-- BẢNG 4.2: product_reviews
+-- Đánh giá sản phẩm của khách hàng sau khi nhận hàng
+-- ==============================================
+DROP TABLE IF EXISTS `product_reviews`;
+CREATE TABLE `product_reviews` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `user_id` INT NOT NULL,
+  `order_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `rating` TINYINT NOT NULL DEFAULT 5,
+  `comment` TEXT NOT NULL,
+  `image` VARCHAR(255) DEFAULT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`product_id`) REFERENCES `products`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- ==============================================
 -- BẢNG 5: news
 -- Tin tức / Blog
 -- ==============================================
