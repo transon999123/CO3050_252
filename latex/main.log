@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.4)  30 MAR 2026 14:58
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.4)  4 APR 2026 22:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -638,26 +638,150 @@ File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
 Package: listings 2024/09/23 1.10c (Carsten Heinz)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
-\LTleft=\skip75
-\LTright=\skip76
-\LTpre=\skip77
-\LTpost=\skip78
-\LTchunksize=\count376
-\LTcapwidth=\dimen297
-\LT@head=\box81
-\LT@firsthead=\box82
-\LT@foot=\box83
-\LT@lastfoot=\box84
-\LT@gbox=\box85
-\LT@cols=\count377
-\LT@rows=\count378
-\c@LT@tables=\count379
-\c@LT@chunks=\count380
-\LT@p@ftn=\toks48
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen297
+\lightrulewidth=\dimen298
+\cmidrulewidth=\dimen299
+\belowrulesep=\dimen300
+\belowbottomsep=\dimen301
+\aboverulesep=\dimen302
+\abovetopsep=\dimen303
+\cmidrulesep=\dimen304
+\cmidrulekern=\dimen305
+\defaultaddspace=\dimen306
+\@cmidla=\count376
+\@cmidlb=\count377
+\@aboverulesep=\dimen307
+\@belowrulesep=\dimen308
+\@thisruleclass=\count378
+\@lastruleclass=\count379
+\@thisrulewidth=\dimen309
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count380
+\mult@box=\box81
+\multicol@leftmargin=\dimen310
+\c@unbalance=\count381
+\c@collectmore=\count382
+\doublecol@number=\count383
+\multicoltolerance=\count384
+\multicolpretolerance=\count385
+\full@width=\dimen311
+\page@free=\dimen312
+\premulticols=\dimen313
+\postmulticols=\dimen314
+\multicolsep=\skip75
+\multicolbaselineskip=\skip76
+\partial@page=\box82
+\last@line=\box83
+\mc@boxedresult=\box84
+\maxbalancingoverflow=\dimen315
+\mult@rightbox=\box85
+\mult@grightbox=\box86
+\mult@firstbox=\box87
+\mult@gfirstbox=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\c@minrows=\count386
+\c@columnbadness=\count387
+\c@finalcolumnbadness=\count388
+\last@try=\dimen316
+\multicolovershoot=\dimen317
+\multicolundershoot=\dimen318
+\mult@nat@firstbox=\box125
+\colbreak@box=\box126
+\mc@col@check@num=\count389
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks48
+\verbatim@line=\toks49
+\verbatim@in@stream=\read4
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box127
+\tcb@upperbox=\box128
+\tcb@lowerbox=\box129
+\tcb@phantombox=\box130
+\c@tcbbreakpart=\count390
+\c@tcblayer=\count391
+\c@tcolorbox@number=\count392
+\l__tcobox_tmpa_box=\box131
+\l__tcobox_tmpa_dim=\dimen319
+\tcb@temp=\box132
+\tcb@temp=\box133
+\tcb@temp=\box134
+\tcb@temp=\box135
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip77
+\LTright=\skip78
+\LTpre=\skip79
+\LTpost=\skip80
+\LTchunksize=\count393
+\LTcapwidth=\dimen320
+\LT@head=\box136
+\LT@firsthead=\box137
+\LT@foot=\box138
+\LT@lastfoot=\box139
+\LT@gbox=\box140
+\LT@cols=\count394
+\LT@rows=\count395
+\c@LT@tables=\count396
+\c@LT@chunks=\count397
+\LT@p@ftn=\toks50
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks51
+\thm@bodyfont=\toks52
+\thm@headfont=\toks53
+\thm@notefont=\toks54
+\thm@headpunct=\toks55
+\thm@preskip=\skip81
+\thm@postskip=\skip82
+\thm@headsep=\skip83
+\dth@everypar=\toks56
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
@@ -680,30 +804,30 @@ File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodepartlowerbox=\box86
-\pgfnodeparttwobox=\box87
-\pgfnodepartthreebox=\box88
-\pgfnodepartfourbox=\box89
-\pgfnodeparttwentybox=\box90
-\pgfnodepartnineteenbox=\box91
-\pgfnodeparteighteenbox=\box92
-\pgfnodepartseventeenbox=\box93
-\pgfnodepartsixteenbox=\box94
-\pgfnodepartfifteenbox=\box95
-\pgfnodepartfourteenbox=\box96
-\pgfnodepartthirteenbox=\box97
-\pgfnodeparttwelvebox=\box98
-\pgfnodepartelevenbox=\box99
-\pgfnodeparttenbox=\box100
-\pgfnodepartninebox=\box101
-\pgfnodeparteightbox=\box102
-\pgfnodepartsevenbox=\box103
-\pgfnodepartsixbox=\box104
-\pgfnodepartfivebox=\box105
+\pgfnodepartlowerbox=\box141
+\pgfnodeparttwobox=\box142
+\pgfnodepartthreebox=\box143
+\pgfnodepartfourbox=\box144
+\pgfnodeparttwentybox=\box145
+\pgfnodepartnineteenbox=\box146
+\pgfnodeparteighteenbox=\box147
+\pgfnodepartseventeenbox=\box148
+\pgfnodepartsixteenbox=\box149
+\pgfnodepartfifteenbox=\box150
+\pgfnodepartfourteenbox=\box151
+\pgfnodepartthirteenbox=\box152
+\pgfnodeparttwelvebox=\box153
+\pgfnodepartelevenbox=\box154
+\pgfnodeparttenbox=\box155
+\pgfnodepartninebox=\box156
+\pgfnodeparteightbox=\box157
+\pgfnodepartsevenbox=\box158
+\pgfnodepartsixbox=\box159
+\pgfnodepartfivebox=\box160
 ))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@layerbox@background=\box106
-\pgf@layerboxsaved@background=\box107
+\pgf@layerbox@background=\box161
+\pgf@layerboxsaved@background=\box162
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-vietnamese.ldf
 File: gloss-vietnamese.ldf polyglossia: module for Vietnamese
 )
@@ -713,26 +837,26 @@ Package polyglossia Info: Default language is vietnamese
  (./main.aux (./source/content/title.aux) (./source/content/front/intro.aux) (./source/content/contents.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 131.
-LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -775,62 +899,62 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 131.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 131.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 131.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 131.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 131.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 131.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 131.
-LaTeX Font Info:    Redeclaring math accent \check on input line 131.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 131.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 131.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 131.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 131.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 131.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 158.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 158.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 158.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 158.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 158.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 158.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 158.
+LaTeX Font Info:    Redeclaring math accent \check on input line 158.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 158.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 158.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 158.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 158.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 158.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 131.
+(Font)              `operators' in the math version `normal' on input line 158.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 131.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 158.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 131.
+(Font)              `operators' in the math version `bold' on input line 158.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 131.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 158.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 131.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 158.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 131.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 158.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 131.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 158.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 131.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 158.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 131.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 158.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 131.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 158.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 131.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 158.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 131.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 158.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 131.
-Package hyperref Info: Link coloring OFF on input line 131.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 158.
+Package hyperref Info: Link coloring OFF on input line 158.
 (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-\c@lstlisting=\count381
+\c@lstlisting=\count398
 \openout2 = `source/content/title.aux'.
 
  (./source/content/title.tex
@@ -913,7 +1037,16 @@ File: Logo BK.png Graphic file (type bmp)
 [3
 
 
-] (./main.toc)
+] (./main.toc
+Overfull \hbox (8.193pt too wide) in paragraph at lines 16--16
+ [] [][]\TU/lmr/bx/n/12 PHẦN 2: BÀI TẬP LÝ THUYẾT (BLOOM 1-2: NHẬN BIẾT & THÔNG 
+ []
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[4])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -939,12 +1072,12 @@ and I'll forget about whatever was undefined.
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
-[4]
+[5]
 \openout2 = `source/content/contents.aux'.
 
- (./source/content/contents.tex (./source/content/question.tex
-Overfull \hbox (18.0pt too wide) in paragraph at lines 10--11
-[][] 
+ (./source/content/contents.tex (./source/content/chapter2.tex
+Overfull \hbox (59.72577pt too wide) in paragraph at lines 8--15
+ [][] 
  []
 
 
@@ -955,18 +1088,25 @@ File: Logo BK.png Graphic file (type bmp)
 
 
 ]
+Overfull \hbox (78.7411pt too wide) in paragraph at lines 59--68
+ [][] 
+ []
+
+
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
 [2]
-
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
-[3]
+ [3]
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
 [4]
+Underfull \hbox (badness 10000) in paragraph at lines 152--155
+\TU/lmr/m/n/12 Crosstalk.  C. Electromigration.
+ []
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
@@ -983,18 +1123,70 @@ File: Logo BK.png Graphic file (type bmp)
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
 [8]
+Overfull \hbox (4.04788pt too wide) in paragraph at lines 265--266
+[]\TU/lmr/m/n/12 Nhiễu Crosstalk tỷ lệ thuận với điện dung ghép giữa dây gây nhiễu (Aggressor)
+ []
+
+
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
-[9]
+[9])
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
-[10]
+[10] (./source/content/chapter3.tex
+Overfull \hbox (31.01083pt too wide) in paragraph at lines 1--1
+[]\TU/lmr/bx/n/17.28 PHẦN 1: TỔNG HỢP LÝ THUYẾT (CHEATSHEET) 
+ []
+
+
+Underfull \hbox (badness 1603) in paragraph at lines 13--13
+[]|\TU/lmr/m/n/12 Linh hoạt, rút ngắn Time-to-
+ []
+
+
+Overfull \hbox (9.14717pt too wide) in paragraph at lines 8--15
+ [][] 
+ []
+
+
+Underfull \hbox (badness 2990) in paragraph at lines 22--22
+[]|\TU/lmr/bx/n/12 Phân tích thời gian tĩnh
+ []
+
+
+Underfull \hbox (badness 1762) in paragraph at lines 22--22
+[]|\TU/lmr/bx/n/12 Phân tích thời gian động
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 24--24
+[]|\TU/lmr/m/n/12 Phụ thuộc vào bộ kiểm thử
+ []
+
+
+Overfull \hbox (9.14717pt too wide) in paragraph at lines 20--27
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]|\TU/lmr/m/n/12 Phổ biến trong thiết kế
+ []
+
+
+Overfull \hbox (9.14717pt too wide) in paragraph at lines 32--39
+ [][] 
+ []
+
+
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
-[11]
+[11
+
+]
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
@@ -1007,10 +1199,20 @@ File: Logo BK.png Graphic file (type bmp)
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
 [14]
+Overfull \hbox (5.8623pt too wide) in paragraph at lines 148--149
+[]\TU/lmr/bx/it/12 Giải thích (Hướng dẫn): \TU/lmr/m/n/12 Công thức: $\OML/cmm/m/it/12 LAT[] \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 LAT[]; LAT[]\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 Delay[] \OT1/cmr/m/n/12 =
+ []
+
+
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
 [15]
+Overfull \hbox (10.51991pt too wide) in paragraph at lines 169--170
+\TU/lmr/m/n/12 (Critical path) bằng cách dùng cell có driver mạnh hơn hoặc chia nhỏ logic (pipelining).
+ []
+
+
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
@@ -1019,9 +1221,18 @@ File: Logo BK.png Graphic file (type bmp)
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
 [17]
+Overfull \hbox (7.09677pt too wide) in paragraph at lines 218--220
+\TU/lmr/m/n/12 đại của các đường vào: $\OML/cmm/m/it/12 LAT[] \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 LAT[]; LAT[]\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 Delay[] \OT1/cmr/m/n/12 = [](12\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 18) +
+ []
+
+
+
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
- [18]
+[18]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 237.
+
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
@@ -1030,16 +1241,199 @@ File: Logo BK.png Graphic file (type bmp)
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
 [20]
-Overfull \hbox (18.0pt too wide) in paragraph at lines 631--632
-[][] 
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[21] (./main.toc)
+\tf@toc=\write9
+\openout9 = `main.toc'.
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[22]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[23]
+Overfull \hbox (23.37355pt too wide) in alignment at lines 358--361
+ [] [] [] 
  []
+
+
+Overfull \hbox (23.37355pt too wide) in alignment at lines 361--363
+ [] [] [] 
+ []
+
+
+Underfull \hbox (badness 2205) in paragraph at lines 365--365
+[]|\TU/lmr/m/n/12 Đa công nghệ (CPU 5nm +
+ []
+
+
+Overfull \hbox (23.37355pt too wide) in alignment at lines 363--368
+ [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--372
+[]|\TU/lmr/bx/n/12 Static Timing Analysis
+ []
+
+
+Underfull \hbox (badness 5578) in paragraph at lines 372--372
+[]|\TU/lmr/bx/n/12 Dynamic Timing Analysis
+ []
+
+
+Overfull \hbox (23.37355pt too wide) in alignment at lines 370--373
+ [] [] [] 
+ []
+
+
+Overfull \hbox (23.37355pt too wide) in alignment at lines 373--375
+ [] [] [] 
+ []
+
+
+Overfull \hbox (23.37355pt too wide) in alignment at lines 375--380
+ [] [] [] 
+ []
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[24]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[25]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[26]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[27]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.452     \\ \textbf
+                    {A.} Thiếu xung nhịp clk. \quad \textbf{B.} Thiếu nhánh ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[28]
+Overfull \hbox (23.63055pt too wide) in paragraph at lines 467--470
+\TU/lmr/bx/it/12 Giải thích: \TU/lmr/m/n/12 Dùng 2-FF synchronizer giúp loại bỏ hiện tượng bất ổn định (Metastability).
+ []
+
+
+Overfull \hbox (20.0024pt too wide) in paragraph at lines 475--478
+\TU/lmr/bx/n/12 A. \TU/lmr/m/n/12 Synthesis.  \TU/lmr/bx/n/12 B. \TU/lmr/m/n/12 DFT.  \TU/lmr/bx/n/12 C. \TU/lmr/m/n/12 Physical Verification (LVS/DRC).  \TU/lmr/bx/n/12 D. \TU/lmr/m/n/12 RTL Simulation. 
+ []
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[29]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[30]
+Overfull \hbox (12.52554pt too wide) in paragraph at lines 490--490
+[]\TU/lmr/bx/n/17.28 PHẦN 4: DỰ ĐOÁN ĐỀ THI (BLOOM 5-6: TỔNG
+ []
+
+
+! LaTeX Error: Environment highlightbox undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.493 \begin{highlightbox}
+                          {Công thức trọng tâm}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{mysize} on input line 224 ended by \end{highlightbox}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.499 \end{highlightbox}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[31]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[32]
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[33]
+
+! LaTeX Error: Environment exercisbox undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.590 \begin{exercisbox}
+                        {Chiến thuật làm bài}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+File: Logo BK.png Graphic file (type bmp)
+<Logo BK.png>
+[34]
+
+! LaTeX Error: \begin{mysize} on input line 224 ended by \end{exercisbox}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.597 \end{exercisbox}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 ))
 
 File: Logo BK.png Graphic file (type bmp)
 <Logo BK.png>
-[21]
-runsystem(latexminted cleantemp  --timestamp 20260330145820 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
+[35]
+runsystem(latexminted cleantemp  --timestamp 20260404222231 FAD58DE7366495DB4650CFEFAC2FCD61)...executed.
 
  (./main.aux (./source/content/title.aux) (./source/content/front/intro.aux) (./source/content/contents.aux))
  ***********
@@ -1047,15 +1441,15 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C7917D82ECD5903E00A7C277733604AD;4591.
+(rerunfilecheck)             Checksum: 78FD0BAD7D3C3B0DD7E7EAE4963E9984;8165.
  ) 
 Here is how much of TeX's memory you used:
- 31410 strings out of 473832
- 682885 string characters out of 5729482
- 1264796 words of memory out of 5000000
- 53938 multiletter control sequences out of 15000+600000
- 563970 words of font info for 71 fonts, out of 8000000 for 9000
+ 33800 strings out of 473832
+ 742839 string characters out of 5729482
+ 1301965 words of memory out of 5000000
+ 56292 multiletter control sequences out of 15000+600000
+ 565550 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 102i,13n,107p,478b,901s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,14n,107p,537b,928s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (26 pages).
+Output written on main.pdf (41 pages).

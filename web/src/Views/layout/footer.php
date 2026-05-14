@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
-                <h5 class="text-uppercase font-weight-bold text-warning">FASHION STORE</h5>
-                <p>Website thương mại điện tử chuyên cung cấp các mặt hàng thời trang nam nữ cao cấp, mang lại phong cách hiện đại và trẻ trung.</p>
+                <h5 class="text-uppercase font-weight-bold text-warning"><?= htmlspecialchars($global_settings['site_name'] ?? 'FASHION STORE') ?></h5>
+                <p><?= htmlspecialchars($global_settings['about_text'] ?? 'Website thương mại điện tử chuyên cung cấp các mặt hàng thời trang nam nữ cao cấp, mang lại phong cách hiện đại và trẻ trung.') ?></p>
             </div>
             <div class="col-md-4 mb-4">
                 <h5 class="text-uppercase font-weight-bold">Chính Sách & Hỗ Trợ</h5>
@@ -15,9 +15,9 @@
             </div>
             <div class="col-md-4 mb-4">
                 <h5 class="text-uppercase font-weight-bold">Liên Hệ</h5>
-                <p><i class="fa fa-map-marker-alt mr-2"></i> Đại học Bách Khoa TP.HCM</p>
-                <p><i class="fa fa-phone mr-2"></i> 0123.456.789</p>
-                <p><i class="fa fa-envelope mr-2"></i> cskh@fashionstore.com</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i> <?= htmlspecialchars($global_settings['address'] ?? 'Đại học Bách Khoa TP.HCM') ?></p>
+                <p><i class="fa fa-phone mr-2"></i> <?= htmlspecialchars($global_settings['phone'] ?? '0123.456.789') ?></p>
+                <p><i class="fa fa-envelope mr-2"></i> <?= htmlspecialchars($global_settings['email'] ?? 'cskh@fashionstore.com') ?></p>
             </div>
         </div>
         <hr class="bg-secondary">

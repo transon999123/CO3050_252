@@ -100,4 +100,35 @@ class ProfileController extends Controller {
         }
         $this->redirect('index.php?controller=profile&action=index');
     }
+    // Xử lý đổi mật khẩu
+    public function changePassword() {
+        if (!isset($_SESSION['user_id']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('index.php');
+        }
+
+        $userId = $_SESSION['user_id'];
+        $oldPassword = $_POST['old_password'] ?? '';
+        $newPassword = $_POST['new_password'] ?? '';
+        $confirmPassword = $_POST['confirm_password'] ?? '';
+
+        if ($newPassword !== $confirmPassword) {
+            $this->redirect('index.php?controller=profile&action=index&msg=pwd_mismatch');
+            return;
+        }
+
+        $user = $this->userModel->getUserByUsername($_SESSION['username']);
+        
+        // Kiểm tra mật khẩu cũ
+        if (password_verify($oldPassword, $user['password'])) {
+            // Hash pass mới
+            $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+            if ($this->userModel->changePassword($userId, $hashedPassword)) {
+                $this->redirect('index.php?controller=profile&action=index&msg=pwd_success');
+            } else {
+                $this->redirect('index.php?controller=profile&action=index&msg=pwd_error');
+            }
+        } else {
+            $this->redirect('index.php?controller=profile&action=index&msg=pwd_wrong');
+        }
+    }
 }

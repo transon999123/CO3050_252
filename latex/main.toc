@@ -1,16 +1,27 @@
 \xpg@aux {}{vietnamese}
 \contentsline {section}{BẢNG PHÂN CÔNG VÀ ĐÁNH GIÁ}{i}{Doc-Start}%
-\contentsline {section}{\numberline {1}Phần 1: Chu kỳ dự án và Ý tưởng đầu tư}{1}{section.1}%
-\contentsline {section}{\numberline {2}Phần 2: Giai đoạn Chuẩn bị đầu tư và Các cấp độ Nghiên cứu}{5}{section.2}%
-\contentsline {section}{\numberline {3}Phần 3: Tính toán chỉ số hiệu quả tài chính NPV, IRR và Payback}{9}{section.3}%
-\contentsline {section}{\numberline {4}Phần 4: Thực hiện đầu tư, Vận hành và Biến cố dự án}{13}{section.4}%
-\contentsline {section}{\numberline {5}Câu hỏi tự luận}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Xác định ý tưởng và phát hiện cơ hội đầu tư (2.5đ)}{16}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Đánh đổi giữa chi phí chuẩn bị và độ chính xác (2.5đ)}{16}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Phân tích động và quyết định đầu tư (2.5đ)}{17}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Quản trị chu kỳ vận hành và thanh lý (2.5đ)}{17}{subsection.5.4}%
-\contentsline {section}{\numberline {6}BẢNG ĐÁP ÁN TỔNG HỢP}{18}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Tình huống 1: Chiến lược xác lập ý tưởng}{20}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Tình huống 2: Trade-off chi phí}{20}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Tình huống 3: Phân tích động và tài chính}{20}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Tình huống 4: Chu kỳ khép kín}{21}{subsection.6.4}%
+\contentsline {section}{\numberline {1}PHẦN I: LÝ THUYẾT TỔNG HỢP CHUYÊN SÂU}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}1. Vật liệu Bán dẫn và Cấu trúc Transistor}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}2. Đặc tính dòng điện MOSFET}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}3. Cổng Logic và Phần tử Nhớ}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}4. Toàn vẹn Tín hiệu (Signal Integrity)}{2}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}5. Công nghệ Tiên tiến: FinFET và GAA}{2}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}6. Kiến thức đáng chú ý (Notable Knowledge)}{2}{subsection.1.6}%
+\contentsline {section}{\numberline {2}PHẦN II: BÀI TẬP ÔN TẬP (40 CÂU TRẮC NGHIỆM - NHẬN BIẾT \& THÔNG HIỂU)}{3}{section.2}%
+\contentsline {section}{\numberline {3}PHẦN III: BÀI TẬP VẬN DỤNG (40 CÂU TRẮC NGHIỆM - PHÂN TÍCH \& ĐÁNH GIÁ)}{5}{section.3}%
+\contentsline {section}{\numberline {4}PHẦN IV: BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI CHI TIẾT}{6}{section.4}%
+\contentsline {section}{\numberline {5}PHẦN 1: TỔNG HỢP LÝ THUYẾT (CHEATSHEET)}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Bảng so sánh các khái niệm trọng tâm}{11}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Các mức độ trừu tượng (Abstraction Levels)}{11}{subsection.5.2}%
+\contentsline {section}{\numberline {6}PHẦN 2: BÀI TẬP LÝ THUYẾT (BLOOM 1-2: NHẬN BIẾT \& THÔNG HIỂU)}{12}{section.6}%
+\contentsline {section}{\numberline {7}PHẦN 3: BÀI TẬP VẬN DỤNG (BLOOM 3-6: VẬN DỤNG, PHÂN TÍCH, ĐÁNH GIÁ)}{15}{section.7}%
+\contentsline {section}{\numberline {8}PHẦN 4: BÀI TẬP VẬN DỤNG NÂNG CAO (APPLICATION \& ANALYSIS)}{18}{section.8}%
+\contentsline {section}{\numberline {9}PHẦN 1: TÓM TẮT LÝ THUYẾT VÀ BẢNG SO SÁNH}{24}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Quy trình thiết kế LSI tổng quát}{24}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Bảng so sánh các khái niệm quan trọng}{24}{subsection.9.2}%
+\contentsline {section}{\numberline {10}PHẦN 2: BÀI TẬP LÝ THUYẾT (BLOOM 1-2: NHẬN BIẾT)}{26}{section.10}%
+\contentsline {section}{\numberline {11}PHẦN 3: BÀI TẬP VẬN DỤNG (BLOOM 3-4: PHÂN TÍCH)}{28}{section.11}%
+\contentsline {section}{\numberline {12}PHẦN 4: DỰ ĐOÁN ĐỀ THI (BLOOM 5-6: TỔNG HỢP \& ĐÁNH GIÁ)}{31}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Bảng công thức sử dụng}{31}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Bộ câu hỏi dự đoán nâng cao (20 câu)}{31}{subsection.12.2}%
+\contentsline {section}{\numberline {13}PHẦN 6: LỜI KHUYÊN ÔN THI}{35}{section.13}%

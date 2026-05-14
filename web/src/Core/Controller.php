@@ -27,6 +27,17 @@ class Controller {
      */
     protected function renderFrontend($viewPath, $data = []) {
         extract($data);
+        
+        // Đọc cài đặt toàn cục
+        $settingsFile = __DIR__ . '/../../config/settings.json';
+        $global_settings = file_exists($settingsFile) ? json_decode(file_get_contents($settingsFile), true) : [
+            'site_name' => 'Fashion Store',
+            'phone' => '0123.456.789',
+            'email' => 'cskh@fashionstore.com',
+            'address' => 'Đại học Bách Khoa TP.HCM',
+            'about_text' => 'Website thương mại điện tử chuyên cung cấp các mặt hàng thời trang nam nữ cao cấp, mang lại phong cách hiện đại và trẻ trung.'
+        ];
+
         $view_content = __DIR__ . '/../Views/' . $viewPath . '.php';
         $layout = __DIR__ . '/../Views/layout/main_layout.php';
         
