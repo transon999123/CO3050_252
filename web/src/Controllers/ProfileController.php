@@ -2,12 +2,18 @@
 // src/Controllers/ProfileController.php
 require_once __DIR__ . '/../Core/Controller.php';
 require_once __DIR__ . '/../Models/UserModel.php';
+require_once __DIR__ . '/../Models/OrderModel.php';
+require_once __DIR__ . '/../Models/ReviewModel.php';
 
 class ProfileController extends Controller {
     private $userModel;
+    private $orderModel;
+    private $reviewModel;
 
     public function __construct() {
         $this->userModel = new UserModel();
+        $this->orderModel = new OrderModel();
+        $this->reviewModel = new ReviewModel();
     }
 
     public function index() {
@@ -30,18 +36,87 @@ class ProfileController extends Controller {
             $this->redirect('index.php?controller=auth&action=login');
         }
 
-        require_once __DIR__ . '/../../config/db.php';
-        $db = (new Database())->getConnection();
-        
-        $userId = $_SESSION['user_id'];
-        $orders = $db->prepare("SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC");
-        $orders->execute([$userId]);
-        $orders = $orders->fetchAll();
+        $orders = $this->orderModel->getOrdersByUserId($_SESSION['user_id']);
 
         $this->renderFrontend('profile/orders', [
             'page_title' => 'Lịch Sử Đơn Hàng',
             'orders' => $orders
         ]);
+    }
+
+    public function detail() {
+        if (!isset($_SESSION['user_id'])) {
+            $this->redirect('index.php?controller=auth&action=login');
+        }
+
+        $orderId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        $order = $this->orderModel->getOrderById($orderId, $_SESSION['user_id']);
+
+        if (!$order) {
+            die('<div class="container mt-5"><div class="alert alert-danger">Không tìm thấy đơn hàng hoặc bạn không có quyền truy cập.</div></div>');
+        }
+
+        $items = $this->orderModel->getOrderItems($orderId);
+        $reviewedProductIds = $this->reviewModel->getReviewedProductIdsByOrder($_SESSION['user_id'], $orderId);
+
+        $this->renderFrontend('profile/order_detail', [
+            'page_title' => 'Chi Tiết Đơn Hàng #' . $order['id'],
+            'order' => $order,
+            'items' => $items,
+            'reviewedProductIds' => $reviewedProductIds
+        ]);
+    }
+
+    public function cancelOrder() {
+        if (!isset($_SESSION['user_id']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('index.php');
+        }
+
+        $orderId = isset($_POST['order_id']) ? (int)$_POST['order_id'] : 0;
+        $this->orderModel->cancelOrder($orderId, $_SESSION['user_id']);
+        $this->redirect('index.php?controller=profile&action=detail&id=' . $orderId);
+    }
+
+    public function confirmOrder() {
+        if (!isset($_SESSION['user_id']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('index.php');
+        }
+
+        $orderId = isset($_POST['order_id']) ? (int)$_POST['order_id'] : 0;
+        $this->orderModel->confirmOrderReceived($orderId, $_SESSION['user_id']);
+        $this->redirect('index.php?controller=profile&action=detail&id=' . $orderId);
+    }
+
+    public function submitReview() {
+        if (!isset($_SESSION['user_id']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $this->redirect('index.php');
+        }
+
+        $orderId = isset($_POST['order_id']) ? (int)$_POST['order_id'] : 0;
+        $productId = isset($_POST['product_id']) ? (int)$_POST['product_id'] : 0;
+        $rating = isset($_POST['rating']) ? min(5, max(1, (int)$_POST['rating'])) : 5;
+        $comment = trim($_POST['comment'] ?? '');
+
+        if ($comment === '') {
+            $this->redirect('index.php?controller=profile&action=detail&id=' . $orderId . '&msg=review_empty');
+        }
+
+        $imageName = null;
+        if (isset($_FILES['review_image']) && $_FILES['review_image']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = __DIR__ . '/../../uploads/reviews/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+            $fileType = strtolower(pathinfo($_FILES['review_image']['name'], PATHINFO_EXTENSION));
+            $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+            if (in_array($fileType, $allowedTypes)) {
+                $imageName = time() . '_' . preg_replace('/[^a-zA-Z0-9-_\.]/', '_', basename($_FILES['review_image']['name']));
+                move_uploaded_file($_FILES['review_image']['tmp_name'], $uploadDir . $imageName);
+            }
+        }
+
+        $this->reviewModel->createReview($_SESSION['user_id'], $orderId, $productId, $rating, $comment, $imageName);
+        $this->redirect('index.php?controller=profile&action=detail&id=' . $orderId . '&msg=review_sent');
     }
 
     // Xử lý cập nhật thông tin

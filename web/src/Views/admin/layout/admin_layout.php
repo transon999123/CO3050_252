@@ -17,6 +17,32 @@
     <link rel="stylesheet" href="assets/css/default-css.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <style>
+        .page-container .form-control,
+        .page-container .form-control-sm,
+        .page-container .custom-select,
+        .page-container select {
+            background-color: #ffffff !important;
+            color: #212529 !important;
+            border-color: #ced4da !important;
+        }
+        .page-container .badge-warning,
+        .page-container .badge-light,
+        .page-container .badge-secondary {
+            color: #212529 !important;
+        }
+        .page-container .badge-info,
+        .page-container .badge-primary,
+        .page-container .badge-success,
+        .page-container .badge-danger,
+        .page-container .badge-dark {
+            color: #ffffff !important;
+        }
+        .page-container .table th,
+        .page-container .table td {
+            vertical-align: middle;
+        }
+    </style>
     <!-- JS Validator (Có thể chèn các thư viện custom nếu cần) -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>

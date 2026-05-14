@@ -49,7 +49,7 @@
                                                 ?>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="#" class="btn btn-sm btn-outline-dark" onclick="alert('Tính năng xem chi tiết đơn hàng đang cập nhật'); return false;">Xem chi tiết</a>
+                                                <a href="index.php?controller=profile&action=detail&id=<?= $o['id'] ?>" class="btn btn-sm btn-outline-dark">Xem chi tiết</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
