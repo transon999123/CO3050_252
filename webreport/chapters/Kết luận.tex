@@ -1,0 +1,25 @@
+\section{Kết luận và Hướng phát triển}
+
+\subsection{Kết luận}
+Trải qua quá trình tìm hiểu, thiết kế và hiện thực Bài tập lớn môn Lập trình Web [cite: 2], nhóm đã hoàn thành xuất sắc mục tiêu đề ra: Xây dựng một website bán hàng trực tuyến toàn diện cho doanh nghiệp. 
+
+Mặc dù gặp phải rào cản lớn về mặt nhân sự khi chỉ có 2/4 thành viên thực sự tham gia đóng góp vào dự án, nhóm đã nỗ lực phân bổ thời gian hợp lý để hoàn thiện hệ thống từ cơ sở dữ liệu đến giao diện người dùng. Những kết quả nổi bật mà nhóm đã đạt được bao gồm:
+\begin{itemize}
+    \item \textbf{Kiến trúc độc lập:} Xây dựng thành công hệ thống theo mô hình MVC từ đầu bằng PHP thuần, tuân thủ nghiêm ngặt yêu cầu không sử dụng bất kỳ Framework hay CMS nào (như Laravel, WordPress).
+    \item \textbf{Giao diện đáp ứng (Responsive):} Ứng dụng HTML5, CSS3 và thư viện Bootstrap để tạo ra giao diện chuẩn W3C, hiển thị tối ưu trên nhiều thiết bị (máy tính, điện thoại, máy tính bảng).
+    \item \textbf{Phân quyền rõ ràng:} Hoàn thiện luồng xác thực người dùng và phân tách giao diện rõ ràng giữa Khách hàng (Member) và Quản trị viên (Admin). Trang quản trị được tích hợp thành công template \textit{Srtdash} hiện đại.
+    \item \textbf{Nghiệp vụ đầy đủ:} Hiện thực trơn tru các tính năng lõi của một hệ thống thương mại điện tử như: duyệt sản phẩm, tìm kiếm, giỏ hàng, thanh toán đặt hàng và quản lý tin tức.
+    \item \textbf{Bảo mật cơ bản:} Áp dụng thành công PDO Prepared Statements chống SQL Injection và mã hóa mật khẩu an toàn.
+\end{itemize}
+
+Qua đồ án này, nhóm không chỉ củng cố vững chắc kiến thức về lập trình web mà còn rèn luyện được kỹ năng giải quyết vấn đề, tự học công nghệ mới và quản lý dự án thực tế.
+
+\subsection{Hướng phát triển tương lai}
+Do giới hạn về mặt thời gian của học kỳ và nguồn lực nhân sự, ứng dụng vẫn còn một số điểm có thể tối ưu. Nếu có cơ hội tiếp tục phát triển, nhóm đề xuất các hướng nâng cấp sau:
+\begin{itemize}
+    \item \textbf{Tích hợp cổng thanh toán trực tuyến:} Bổ sung phương thức thanh toán qua VNPay, MoMo hoặc ZaloPay thông qua API, thay vì chỉ hỗ trợ thanh toán khi nhận hàng (COD) như hiện tại.
+    \item \textbf{Nâng cao trải nghiệm người dùng (UX) với AJAX:} Sử dụng AJAX (Asynchronous JavaScript and XML) cho các tính năng như Thêm vào giỏ hàng, Tìm kiếm trực tiếp (Live Search) và Phân trang mà không cần tải lại toàn bộ trang web.
+    \item \textbf{Hệ thống gửi Email tự động:} Tích hợp thư viện như PHPMailer (sử dụng giao thức SMTP) để tự động gửi email xác nhận đặt hàng, cấp lại mật khẩu hoặc thông báo khuyến mãi cho khách hàng.
+    \item \textbf{Nâng cấp bảo mật:} Bổ sung kỹ thuật tạo mã thông báo chống giả mạo yêu cầu liên trang (Anti-CSRF Tokens) cho toàn bộ các form nhập liệu và thiết lập giới hạn tỷ lệ yêu cầu (Rate Limiting) để chống tấn công Brute-force.
+    \item \textbf{Tối ưu hiệu suất và SEO chuyên sâu:} Áp dụng cơ chế lưu bộ nhớ tạm (Caching) cho các truy vấn DB thường xuyên, tích hợp sitemap.xml và tự động nén hình ảnh người dùng tải lên.
+\end{itemize}

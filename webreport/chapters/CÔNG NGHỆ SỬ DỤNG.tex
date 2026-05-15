@@ -1,0 +1,33 @@
+\section{Công nghệ sử dụng}
+\subsection{Backend (Phía máy chủ)}
+\begin{itemize}
+    \item \textbf{NestJS:} Framework Node.js chính để xây dựng API server. Điều này thể hiện rõ qua cấu trúc file đặc trưng như \texttt{*.controller.ts}, \texttt{*.service.ts}, \texttt{*.module.ts} và file \texttt{nest-cli.json}.
+    \item \textbf{TypeScript:} Ngôn ngữ lập trình chủ đạo giúp bắt lỗi chặt chẽ.
+    \item \textbf{Prisma ORM:} Công cụ tương tác và quản lý cơ sở dữ liệu (thấy qua \texttt{schema.prisma}, \texttt{prisma.service.ts} và thư mục \texttt{migrations}).
+    \item \textbf{MQTT:} Giao thức mạng nhẹ được sử dụng để giao tiếp theo thời gian thực với các thiết bị phần cứng/IoT.
+    \item \textbf{Jest:} Framework kiểm thử được dùng cho Unit Test và End-to-End Test (thể hiện qua các file \texttt{*.spec.ts}, \texttt{jest-e2e.json}).
+\end{itemize}
+
+\subsection{Frontend (Phía giao diện người dùng)}
+\begin{itemize}
+    \item \textbf{Next.js:} Framework React mạnh mẽ, sử dụng kiến trúc App Router mới nhất (thể hiện qua thư mục \texttt{app} chứa các file định tuyến \texttt{page.tsx}, \texttt{layout.tsx} và phân quyền qua các Route Groups như \texttt{(admin)}, \texttt{(manager)}, \texttt{(operator)}).
+    \item \textbf{TypeScript:} Đồng bộ ngôn ngữ với backend, giúp dễ dàng chia sẻ interface/type.
+    \item \textbf{Thư viện UI (Giao diện):}
+    \begin{itemize}
+        \item \textbf{shadcn/ui (hoặc Radix UI):} Rõ ràng qua thư mục \texttt{shared/ui} chứa hàng loạt các component cơ bản được định nghĩa sẵn như \texttt{button.tsx}, \texttt{card.tsx}, \texttt{dialog.tsx}...
+        \item \textbf{Ant Design (antd):} Dự án cũng có tích hợp Ant Design (có file cấu hình \texttt{antd-registry.tsx}).
+    \end{itemize}
+    \item \textbf{Vitest:} Framework kiểm thử hiện đại và siêu tốc dành cho frontend (\texttt{vitest.config.ts}).
+\end{itemize}
+
+\section{Nền tảng IoT \& Phần cứng}
+\begin{itemize}
+    \item \textbf{Adafruit IO:} Hệ thống có tích hợp API của nền tảng Adafruit IO để đọc/ghi dữ liệu cảm biến và điều khiển thiết bị (thư mục \texttt{features/operator/adafruit}).
+\end{itemize}
+
+\subsection{DevOps, Triển khai \& Tools}
+\begin{itemize}
+    \item \textbf{Docker:} Cả hai thư mục backend và frontend đều có file \texttt{Dockerfile}, cho thấy hệ thống được đóng gói bằng container để dễ dàng triển khai.
+    \item \textbf{PostCSS \& Tailwind CSS:} Công cụ xử lý CSS (có file \texttt{postcss.config.mjs}), đi kèm với tổ hợp quen thuộc Next.js + shadcn/ui.
+    \item \textbf{ESLint:} Trình phân tích mã tĩnh để đảm bảo chất lượng và chuẩn hóa code (\texttt{eslint.config.mjs}).
+\end{itemize}

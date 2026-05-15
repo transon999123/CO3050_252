@@ -1,0 +1,212 @@
+\section{Hiện thực dự án}
+\href{https://github.com/phuckhanhdev/CO3050_252/tree/main/web}{Source code}
+\subsection{Cấu trúc dự án}
+\begin{lstlisting}
+web/
+|-- index.php           # Front Controller (Diem vao chinh cua ung dung)
+|-- database.sql        # File dump co so du lieu (Schema & Data)
+|-- src/                # Thu muc chua ma nguon chinh (MVC)
+|   |-- Core/           # Cac lop co so (Base classes)
+|   |-- Controllers/    # Tang dieu khien (Logic nghiep vu)
+|   |-- Models/         # Tang du lieu (Truy van CSDL)
+|   |-- Views/          # Tang giao dien (HTML/PHP)
+|-- config/             # Cau hinh he thong (Database, Settings)
+|-- assets/             # Tai nguyen tinh (CSS, JS, Images, Fonts)
+|-- uploads/            # Du lieu hinh anh nguoi dung tai len    
+\end{lstlisting}
+
+\subsubsection{Thư mục \texttt{src/} - Mã nguồn ứng dụng}
+Đây là thư mục cốt lõi chứa toàn bộ logic backend và giao diện frontend của hệ thống.
+\begin{itemize}
+    \item \textbf{\texttt{Core/}:} Chứa các lớp cơ sở dùng chung cho toàn ứng dụng.
+    \begin{itemize}
+        \item \texttt{Controller.php}: Lớp cha cung cấp các phương thức dùng chung như \texttt{renderFrontend()}, \texttt{view()}, \texttt{redirect()}.
+        \item \texttt{Model.php}: Lớp cha quản lý đối tượng kết nối cơ sở dữ liệu (\texttt{\$this->db}).
+        \item \texttt{AdminController.php}: Lớp cha dành riêng cho khu vực quản trị, tích hợp middleware kiểm tra quyền Admin.
+    \end{itemize}
+    
+    \item \textbf{\texttt{Controllers/}:} Đóng vai trò điều hướng, nhận \textit{request} từ người dùng, gọi Model tương ứng để xử lý dữ liệu và trả về View.
+    \begin{itemize}
+        \item \textit{Frontend Controllers:} \texttt{HomeController}, \texttt{ProductController}, \texttt{CartController}, \texttt{AuthController},... xử lý các tác vụ của khách hàng.
+        \item \textit{Backend Controllers:} Bắt đầu bằng tiền tố \texttt{Admin...} (vd: \texttt{AdminProductController}, \texttt{AdminOrderController}) xử lý các tác vụ quản trị (CRUD).
+    \end{itemize}
+    
+    \item \textbf{\texttt{Models/}:} Chịu trách nhiệm giao tiếp với cơ sở dữ liệu (MySQL). Các tệp như \texttt{ProductModel.php}, \texttt{UserModel.php}, \texttt{OrderModel.php} chứa các câu lệnh SQL để truy xuất, thêm, sửa, xóa dữ liệu.
+    
+    \item \textbf{\texttt{Views/}:} Chứa các tệp giao diện (HTML nhúng PHP) hiển thị trực tiếp cho người dùng.
+    \begin{itemize}
+        \item \texttt{layout/}: Các template dùng chung (Header, Footer, Sidebar).
+        \item \texttt{auth/}, \texttt{home/}, \texttt{product/}, \texttt{cart/},...: Giao diện chi tiết cho từng chức năng của khách hàng.
+        \item \texttt{admin/}: Giao diện Dashboard và các trang quản lý dành riêng cho ban quản trị.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Thư mục \texttt{config/} - Cấu hình hệ thống}
+Chứa các thiết lập nền tảng không hiển thị trên web.
+\begin{itemize}
+    \item \texttt{db.php}: Định nghĩa lớp \texttt{Database}, lưu trữ thông tin cấu hình (host, username, password) và trả về đối tượng kết nối PDO.
+    \item \texttt{settings.json}: Lưu trữ các thông số động của website (tên cửa hàng, logo, thông tin liên hệ).
+\end{itemize}
+
+\subsubsection{Thư mục \texttt{assets/} - Tài nguyên tĩnh}
+Chứa các tệp tin được tải trực tiếp về trình duyệt người dùng (\textit{Client-side}).
+\begin{itemize}
+    \item \textbf{\texttt{css/}:} Các tệp định dạng giao diện (\texttt{bootstrap.min.css}, \texttt{styles.css}, \texttt{responsive.css}).
+    \item \textbf{\texttt{js/}:} Chứa các thư viện và script xử lý tương tác (\texttt{bootstrap.bundle.min.js}, \texttt{scripts.js}, xử lý biểu đồ cho admin).
+    \item \textbf{\texttt{images/} \& \texttt{fonts/}:} Tài nguyên hình ảnh tĩnh (logo, banner, icon) và các phông chữ sử dụng trên web.
+\end{itemize}
+
+\subsubsection{Thư mục \texttt{uploads/} - Dữ liệu người dùng}
+Lưu trữ các file do người dùng hoặc admin tải lên hệ thống (thường hiển thị qua thẻ \texttt{<img src="...">}).
+\begin{itemize}
+    \item \textbf{\texttt{products/}:} Hình ảnh chi tiết của sản phẩm do Admin tải lên.
+    \item \textbf{\texttt{avatars/}:} Ảnh đại diện của người dùng.
+    \item \textit{Lưu ý bảo mật:} Thư mục này cần được thiết lập kiểm tra định dạng và kích thước file tải lên nghiêm ngặt để tránh thực thi mã độc.
+\end{itemize}
+
+\subsubsection{Các tệp tin cấu trúc cấp cao}
+\begin{itemize}
+    \item \textbf{\texttt{index.php} (Front Controller):} Là điểm vào duy nhất (\textit{Entry point}) của ứng dụng. Tệp này khởi tạo \textit{Session}, phân tích tham số URL (\textit{query string}), sau đó khởi tạo và gọi Controller/Action tương ứng. 
+    \\ \textit{Ví dụ:} URL \texttt{.../index.php?controller=product\&action=detail} sẽ gọi hàm \texttt{detail()} trong \texttt{ProductController}.
+    \item \textbf{\texttt{database.sql}:} Chứa mã lệnh DDL và DML (CREATE TABLE, INSERT) để khởi tạo cấu trúc các bảng và dữ liệu mẫu, phục vụ việc triển khai ứng dụng trên môi trường mới.
+\end{itemize}
+
+\subsection{Sơ đồ quan hệ dữ liệu}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=\linewidth]{images/erdd.png}
+    \caption{ERD}
+\end{figure}
+
+\section{Thiết kế ứng dụng}
+
+\subsection{Thiết kế cơ sở dữ liệu}
+Cơ sở dữ liệu của hệ thống được thiết kế theo chuẩn hóa để đảm bảo tính toàn vẹn dữ liệu và tối ưu hóa tốc độ truy vấn. Dưới đây là mô tả chi tiết chức năng và cấu trúc của từng bảng trong sơ đồ ERD.
+
+\subsubsection{Bảng \texttt{users} (Người dùng)}
+Đây là bảng trung tâm quản lý toàn bộ định danh trong hệ thống, bao gồm cả khách hàng (Member) và quản trị viên (Admin) .
+\begin{itemize}
+    \item \textbf{Chức năng:} Lưu trữ thông tin đăng nhập, thông tin cá nhân và phân quyền người dùng thông qua trường \texttt{role}.
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+\hline
+\textbf{Trường} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+id & INT & Primary Key & Mã định danh tự tăng. \\ \hline
+username & VARCHAR(50) & Unique & Tên đăng nhập duy nhất. \\ \hline
+password & VARCHAR(255) & Not Null & Mật khẩu đã được mã hóa bằng BCRYPT. \\ \hline
+role & ENUM & Not Null & Phân quyền: 'admin' hoặc 'member'. \\ \hline
+avatar & VARCHAR(255) & Null & Đường dẫn ảnh đại diện của người dùng. \\ \hline
+\end{tabularx}
+\caption{Từ điển dữ liệu bảng \texttt{users}}
+\end{table}
+
+\subsubsection{Bảng \texttt{categories} và \texttt{products} (Danh mục và Sản phẩm)}
+Hai bảng này quản lý kho hàng của website, được liên kết qua quan hệ 1-N (Một danh mục có nhiều sản phẩm).
+\begin{itemize}
+    \item \textbf{Chức năng:} \texttt{categories} phân loại sản phẩm (VD: Áo thun, Quần Jean). \texttt{products} lưu trữ chi tiết về tên, giá, kích cỡ và số lượng tồn kho (\texttt{stock}).
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+\hline
+\textbf{Trường} & \textbf{Kiểu dữ liệu} & \textbf{Ràng buộc} & \textbf{Mô tả} \\ \hline
+category\_id & INT & Foreign Key & Liên kết tới bảng \texttt{categories}. \\ \hline
+price & DECIMAL(10,2) & Not Null & Giá bán sản phẩm. \\ \hline
+stock & INT & Not Null & Số lượng hàng hiện có trong kho. \\ \hline
+image & VARCHAR(255) & Not Null & Tên file ảnh lưu trong thư mục \texttt{uploads/products/}. \\ \hline
+\end{tabularx}
+\caption{Từ điển dữ liệu bảng \texttt{products}}
+\end{table}
+
+\subsubsection{Bảng \texttt{orders} và \texttt{order\_items} (Đơn hàng và Chi tiết đơn hàng)}
+Đây là hai bảng quan trọng nhất trong nghiệp vụ bán hàng, triển khai mối quan hệ N-N giữa \texttt{users} và \texttt{products}.
+\begin{itemize}
+    \item \textbf{Chức năng:} \texttt{orders} lưu thông tin tổng quát của một lần mua (Tổng tiền, trạng thái, địa chỉ giao hàng). \texttt{order\_items} lưu vết chi tiết từng sản phẩm tại thời điểm mua (số lượng, giá lúc đó) để đối chiếu sau này nếu sản phẩm thay đổi giá.
+\end{itemize}
+
+\subsubsection{Bảng \texttt{news} và \texttt{comments} (Tin tức và Bình luận)}
+Quản lý nội dung bài viết và tương tác cộng đồng trên website.
+\begin{itemize}
+    \item \textbf{Chức năng:} \texttt{news} lưu các bài viết blog, tin tức doanh nghiệp. \texttt{comments} cho phép người dùng để lại phản hồi, được quản trị viên kiểm duyệt thông qua trường \texttt{status}.
+\end{itemize}
+
+\subsubsection{Bảng \texttt{product\_reviews} (Đánh giá sản phẩm)}
+Đây là tính năng mở rộng (màu xanh lá trong sơ đồ ERD) nhằm tăng tính khách quan cho cửa hàng.
+\begin{itemize}
+    \item \textbf{Chức năng:} Lưu trữ mức độ hài lòng (\texttt{rating} từ 1-5 sao) và nhận xét của khách hàng sau khi đã mua hàng (liên kết với \texttt{order\_id}) .
+\end{itemize}
+
+\subsubsection{Bảng \texttt{contacts} và \texttt{tags} (Liên hệ và FAQ)}
+\begin{itemize}
+    \item \textbf{\texttt{contacts}:} Lưu tin nhắn từ form liên hệ của khách hàng vãng lai (tên, email, tiêu đề, nội dung) để admin phản hồi.
+    \item \textbf{\texttt{tags}:} Mặc dù tên bảng là \texttt{tags}, nhưng dựa trên cấu trúc (\texttt{question}, \texttt{answer}), bảng này đóng vai trò quản lý các câu hỏi thường gặp (FAQ) hiển thị trên trang Hỏi/đáp.
+\end{itemize}
+
+\subsection{Mô hình ứng dụng và Luồng xử lý}
+
+
+\textbf{Quy trình hoạt động:}
+\begin{enumerate}
+    \item Người dùng gửi yêu cầu qua trình duyệt đến \texttt{index.php}.
+    \item \texttt{index.php} phân tích URL để gọi Controller và Action tương ứng.
+    \item Controller tương tác với Model để lấy hoặc cập nhật dữ liệu từ MySQL.
+    \item Dữ liệu được trả về và đổ vào View để hiển thị cho người dùng.
+\end{enumerate}
+
+\subsection{Sơ đồ luồng xử lý nghiệp vụ}
+
+Để làm rõ cách thức hoạt động của hệ thống ở tầng Backend, nhóm tiến hành phân tích luồng xử lý của hai tính năng cốt lõi: Xác thực người dùng và Quy trình đặt hàng.
+
+\subsubsection{Luồng xử lý Đăng ký và Đăng nhập}
+Quá trình xác thực người dùng yêu cầu sự kiểm tra nghiêm ngặt để đảm bảo an toàn thông tin và phân quyền chính xác.
+
+\textbf{Chi tiết các bước thực thi:}
+\begin{enumerate}
+    \item \textbf{Khởi tạo:} Người dùng (Khách) truy cập vào trang Đăng nhập hoặc Đăng ký trên giao diện View[cite: 48].
+    \item \textbf{Nhập liệu \& Kiểm tra (Client-side):} Người dùng điền thông tin vào Form. Trình duyệt sử dụng JavaScript để kiểm tra tính hợp lệ cơ bản (không để trống, đúng định dạng email, mật khẩu đủ độ dài)[cite: 63].
+    \item \textbf{Gửi Request:} Dữ liệu được đóng gói và gửi qua phương thức HTTP POST đến \texttt{AuthController}.
+    \item \textbf{Xử lý tại Server (Server-side Validation):} 
+    \begin{itemize}
+        \item PHP thực hiện lọc dữ liệu (Sanitize) để tránh các ký tự độc hại[cite: 63].
+        \item \textbf{Đối với Đăng ký:} Lấy dữ liệu gọi \texttt{UserModel} để kiểm tra xem Email/Username đã tồn tại trong bảng \texttt{users} hay chưa. Nếu chưa, hệ thống băm mật khẩu (\texttt{password\_hash}) và tiến hành lệnh \texttt{INSERT}.
+        \item \textbf{Đối với Đăng nhập:} \texttt{UserModel} tìm kiếm Username trong cơ sở dữ liệu. Nếu tồn tại, sử dụng \texttt{password\_verify()} để đối chiếu mật khẩu.
+    \end{itemize}
+    \item \textbf{Khởi tạo Phiên làm việc (Session):} Nếu xác thực thành công, hệ thống lưu thông tin định danh (ID, Username, Role) vào biến toàn cục \texttt{\$\_SESSION}.
+    \item \textbf{Điều hướng (Routing):} Dựa vào trường \texttt{role}, hệ thống điều hướng:
+    \begin{itemize}
+        \item Nếu \texttt{role = 'admin'}: Chuyển hướng vào trang Dashboard dành riêng cho Quản trị viên (sử dụng template Srtdash).
+        \item Nếu \texttt{role = 'member'}: Chuyển hướng về Trang chủ hoặc trang lịch sử mua hàng.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Luồng xử lý Mua hàng và Thanh toán (Checkout)}
+Đây là quy trình phức tạp nhất trong hệ thống, đòi hỏi sự tương tác giữa nhiều bảng dữ liệu bao gồm \texttt{products}, \texttt{orders}, và \texttt{order\_items} để đảm bảo tính toàn vẹn của đơn hàng.
+
+% BẠN HÃY CHÈN HÌNH SƠ ĐỒ MUA HÀNG VÀO ĐÂY
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{images/flow_checkout.png}
+%     \caption{Sơ đồ luồng Quy trình thêm vào giỏ và Thanh toán}
+% \end{figure}
+
+\textbf{Chi tiết các bước thực thi:}
+\begin{enumerate}
+    \item \textbf{Thêm vào Giỏ hàng:} Khách hàng duyệt danh sách sản phẩm và nhấn "Thêm vào giỏ". \texttt{CartController} sẽ nhận \texttt{product\_id} và lưu vào Giỏ hàng được quản lý tạm thời bằng mảng trong \texttt{\$\_SESSION}.
+    \item \textbf{Xác nhận Thanh toán:} Người dùng truy cập trang Giỏ hàng và nhấn "Thanh toán".
+    \item \textbf{Kiểm tra Định danh:} Hệ thống kiểm tra xem người dùng đã đăng nhập chưa (kiểm tra Session). Nếu chưa, hệ thống lưu lại URL hiện tại và chuyển hướng người dùng đến trang Đăng nhập[cite: 48].
+    \item \textbf{Nhập thông tin Giao hàng:} Người dùng điền địa chỉ, số điện thoại người nhận. JavaScript tiến hành kiểm tra dữ liệu đầu vào[cite: 63].
+    \item \textbf{Xử lý Đơn hàng (\texttt{OrderController}):} Khi người dùng xác nhận đặt hàng, hệ thống bắt đầu một \textit{Transaction} (Giao dịch CSDL) để đảm bảo an toàn dữ liệu:
+    \begin{itemize}
+        \item \textbf{Bước 5.1:} Tính tổng tiền (total\_price) từ Session Giỏ hàng.
+        \item \textbf{Bước 5.2:} Thực hiện lệnh \texttt{INSERT} vào bảng \texttt{orders} thông tin tổng quát của đơn hàng (user\_id, total\_price, địa chỉ giao hàng, trạng thái "Chờ xử lý"). Hệ thống dùng \texttt{lastInsertId()} của PDO để lấy ID đơn hàng vừa tạo.
+        \item \textbf{Bước 5.3:} Duyệt vòng lặp qua từng sản phẩm trong Session Giỏ hàng. Với mỗi sản phẩm, thực hiện \texttt{INSERT} vào bảng \texttt{order\_items} (order\_id, product\_id, quantity, price).
+        \item \textbf{Bước 5.4 (Tùy chọn nâng cao):} Cập nhật giảm số lượng tồn kho (\texttt{stock}) trong bảng \texttt{products} tương ứng với số lượng đã mua.
+    \end{itemize}
+    \item \textbf{Hoàn tất:} Nếu mọi truy vấn SQL thành công, hệ thống \textit{Commit} giao dịch, xóa dữ liệu Giỏ hàng trong Session và hiển thị thông báo "Đặt hàng thành công". Khách hàng có thể vào mục "Lịch sử đơn hàng" để xem lại trạng thái.
+\end{enumerate}

@@ -1,0 +1,809 @@
+\subsection{Use Case \& Đặc tả Use Case}
+
+\subsubsection{Đăng nhập}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-01 \\
+\hline
+\textbf{Use Case name} & Đăng nhập \\
+\hline
+\textbf{Actors} & Quản trị viên, quản lý, nhân viên \\
+\hline
+\textbf{Description} & 
+Người dùng đăng nhập vào hệ thống để xác thực tài khoản cá nhân và được cấp quyền truy cập vào các chức năng, dữ liệu khu vực theo vai trò đã được chỉ định. \\
+\hline
+\textbf{Trigger} & Người dùng chọn nút "Đăng nhập" \\
+\hline
+\textbf{Preconditions} & Tài khoản tồn tại và chưa bị khóa \\
+\hline
+\textbf{Postconditions} & 
+Đăng nhập thành công, hệ thống tạo session và chuyển đến Dashboard phù hợp với vai trò. \\
+\hline
+\textbf{Normal flow} & 1. Người dùng nhập tên đăng nhập và mật khẩu. \newline
+2. Nhấn nút "Đăng nhập". \newline
+3. Hệ thống kiểm tra tính hợp lệ của tài khoản trong CSDL. \newline
+4. Hệ thống tự động truy vấn vai trò (Role) và khu vực (Zone) được gán. \newline
+5. Hệ thống khởi tạo phiên làm việc và điều hướng về Dashboard tương ứng.\\
+\hline
+\textbf{Alternative flow} & 
+Sai mật khẩu $\rightarrow$ hiển thị thông báo lỗi xác thực \\
+\hline
+\textbf{Exceptions} & Lỗi kết nối CSDL \\
+\hline
+\end{tabular}
+
+\subsubsection{Đăng xuất}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-02 \\
+\hline
+\textbf{Use Case name} & Đăng xuất \\
+\hline
+\textbf{Actors} & Quản trị viên, quản lý, nhân viên \\
+\hline
+\textbf{Description} & Người dùng thoát khỏi phiên làm việc hiện tại để bảo mật tài khoản và ngăn chặn các truy cập trái phép sau khi kết thúc sử dụng hệ thống. \\
+\hline
+\textbf{Trigger} & Chọn nút "đăng xuất" \\
+\hline
+\textbf{Preconditions} & Đã đăng nhập \\
+\hline
+\textbf{Postconditions} & Phiên làm việc bị hủy, quay về màn hình Đăng nhập. Người dùng không thể truy cập vào các chức năng của hệ thống nếu không thực hiện Đăng nhập \\
+\hline
+\textbf{Normal flow} & 
+1. Nhấn nút "Đăng xuất" \newline 2. Hệ thống gửi yêu cầu hủy phiên làm việc (Session/Token) đến máy chủ \newline 3. Hệ thống xóa các thông tin xác thực được lưu trữ tạm thời trên trình duyệt/ứng dụng \newline 4. Hệ thống điều hướng người dùng quay trở lại màn hình đăng nhập. \\
+
+\hline
+\textbf{Alternative flow} & -- \\
+\hline
+\textbf{Exceptions} & Lỗi hệ thống \\
+\hline
+\end{tabular}
+
+\subsubsection{Xem dashboard khu vực}
+
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-03 \\
+\hline
+\textbf{Use Case name} & Xem dashboard khu vực \\
+\hline
+\textbf{Actors} & Nhân viên \\
+\hline
+\textbf{Description} & 
+Cung cấp giao diện giám sát tổng quát cho nhân viên về tình trạng hoạt động, thông số môi trường của tất cả máy sấy trong phạm vi khu vực (Zone) được phân công quản lý. \\
+\hline
+\textbf{Trigger} & Chọn mở Dashboard \\
+\hline
+\textbf{Preconditions} & Người dùng đã đăng nhập thành công và tài khoản đã được quản trị viên (Admin) gán vào ít nhất một khu vực cụ thể trong hệ thống. \\
+\hline
+\textbf{Postconditions} & Dashboard hiển thị đầy đủ danh sách thiết bị, trạng thái thực tế và các thông số cảm biến tương ứng với khu vực được truy cập. \\
+\hline
+\textbf{Normal flow} & 
+1. Người dùng chọn chức năng Dashboard trên giao diện chính. \newline
+2. Hệ thống xác định mã khu vực (Zone ID) mà tài khoản này được phép giám sát. \newline 
+3. Hệ thống truy vấn cơ sở dữ liệu để lấy danh sách thiết bị và trạng thái vận hành hiện tại (Running, Idle, Error) thuộc khu vực đó. \newline
+4. Hệ thống đồng bộ với Gateway để lấy thông số nhiệt độ, độ ẩm mới nhất của các thiết bị. \newline 
+5. Hệ thống hiển thị danh sách máy sấy dưới dạng các thẻ (Card) trực quan kèm các chỉ số quan trọng. \\
+\hline
+\textbf{Alternative flow} & 
+Không có máy trong khu vực $\rightarrow$ hiển thị thông báo \\
+\hline
+\textbf{Exceptions} & Lỗi tải dữ liệu thời gian thực \\
+\hline
+\end{tabular}
+
+
+\subsubsection{Theo dõi thông số thời gian thực}
+
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-04 \\
+\hline
+\textbf{Use Case name} & Theo dõi thông số thời gian thực \\
+\hline
+\textbf{Actors} & Nhân viên \\
+\hline
+\textbf{Description} & 
+Theo dõi liên tục các thông số kỹ thuật gồm: nhiệt độ, độ ẩm, trạng thái cửa (đóng/mở) và trạng thái hoạt động của máy sấy theo thời gian thực. \\
+\hline
+\textbf{Trigger} & Chọn một máy cụ thể \\
+\hline
+\textbf{Preconditions} & Thiết bị IoT đang kết nối MQTT \\
+\hline
+\textbf{Postconditions} & Dữ liệu cảm biến hiển thị liên tục trên giao diện \\
+\hline
+\textbf{Normal flow} & 
+1. Người dùng chọn một máy sấy cụ thể từ Dashboard. \newline
+2. Hệ thống thực hiện kết nối (Subscribe) tới các Topic dữ liệu (Nhiệt độ, Độ ẩm, Ánh sáng/Cửa) trên MQTT Broker. \newline
+3. Hệ thống nhận dữ liệu cảm biến được gửi về từ Gateway. \newline 
+4. Hệ thống chuyển đổi giá trị cảm biến ánh sáng thành trạng thái Đóng/Mở của cửa. \newline 5. Hiển thị đồng thời biểu đồ thông số môi trường và icon trạng thái cửa trên giao diện. \\
+\hline
+\textbf{Alternative flow} & 
+Thiết bị không kết nối $\rightarrow$ hiển thị cảnh báo offline. \\
+\hline
+\textbf{Exceptions} & Mất kết nối MQTT Broker \\
+\hline
+\end{tabular}
+
+\subsubsection{Kích hoạt mẻ sấy}
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Use Case ID} & UC-05 \\
+\hline
+\textbf{Use Case name} & Kích hoạt mẻ sấy \\
+\hline
+\textbf{Actors} & Nhân viên \\
+\hline
+\textbf{Description} & 
+Thiết lập các thông số vận hành cho một máy sấy cụ thể bằng cách lựa chọn công thức sấy (Recipe) đã được cấu hình sẵn (Ví dụ: Xoài sấy giòn, Mít sấy dẻo). Hệ thống sẽ tự động áp dụng các ngưỡng nhiệt độ, độ ẩm và thời gian sấy tương ứng mà không cần nhập liệu thủ công. \\
+\hline
+\textbf{Trigger} & Chọn danh sách công thức sấy \\
+\hline
+\textbf{Preconditions} & 1. Người dùng đã đăng nhập. \newline
+2. Máy sấy được chọn đang ở trạng thái sẵn sàng (Idle). \newline
+3. Hệ thống đã có sẵn danh mục công thức sấy trong cơ sở dữ liệu. \\
+\hline
+\textbf{Postconditions} & Mẻ sấy được lưu trong hệ thống \\
+\hline
+\textbf{Normal flow} & 
+1. Người dùng chọn một máy sấy đang ở trạng thái sẵn sàng (Idle). \newline
+2. Hệ thống hiển thị danh sách các công thức sấy đã được Quản lý thiết lập trong thư viện.\newline 
+3. Người dùng chọn công thức sấy phù hợp với loại trái cây hiện tại. \newline
+4. Hệ thống tự động truy vấn và hiển thị các thông số kỹ thuật (Nhiệt độ mục tiêu, Độ ẩm ngưỡng, Thời gian dự kiến) từ công thức đã chọn. \newline
+5. Người dùng xác nhận "Kích hoạt". \newline    
+6. Hệ thống tạo một mã mẻ sấy mới (Batch ID) trong cơ sở dữ liệu và liên kết máy sấy với công thức này. \\
+\hline
+\textbf{Alternative flow} & 
+- Máy sấy đang trong mẻ sấy khác: Hệ thống từ chối kích hoạt và yêu cầu chọn máy khác hoặc dừng mẻ cũ. \\
+\hline
+\textbf{Exceptions} & Lỗi truy vấn dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Khởi động máy sấy}
+
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-06 \\
+\hline
+\textbf{Use Case name} & Khởi động máy sấy \\
+\hline
+\textbf{Actors} & Nhân viên \\
+\hline
+\textbf{Description} & 
+Khởi động máy sấy để bắt đầu quá trình sấy. \\
+\hline
+\textbf{Trigger} & Nhấn nút "Khởi động" \\
+\hline
+\textbf{Preconditions} & Máy ở trạng thái Idle và đã chọn công thức \\
+\hline
+\textbf{Postconditions} & Máy chuyển sang trạng thái Running \\
+\hline
+\textbf{Normal flow} & 
+1. Người dùng nhấn nút "Khởi động" trên giao diện điều khiển của máy sấy đã được chọn công thức. \newline
+2. Hệ thống đóng gói thông tin công thức sấy thành bản tin điều khiển và gửi qua MQTT Topic tương ứng.\newline
+3. Hệ thống đợi phản hồi xác nhận (ACK) từ thiết bị Gateway trong thời gian quy định.\newline
+4. Sau khi nhận xác nhận, hệ thống cập nhật trạng thái máy thành "Running" và ghi nhận thời gian bắt đầu vào lịch sử mẻ sấy. \\
+\hline
+\textbf{Alternative flow} & 
+ Máy đã được khởi động bởi người dùng khác: Hệ thống hiển thị thông báo trạng thái hiện tại là "Running" và từ chối gửi thêm lệnh khởi động. \\
+\hline
+\textbf{Exceptions} & Lỗi truyền lệnh điều khiển \\
+\hline
+\end{tabular}
+
+\subsubsection{Dừng máy sấy}
+
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-07 \\
+\hline
+\textbf{Use Case name} & Dừng máy sấy \\
+\hline
+\textbf{Actors} & Nhân viên \\
+\hline
+\textbf{Description} & 
+Dừng hoạt động máy sấy. \\
+\hline
+\textbf{Trigger} & Nhấn "Dừng" \\
+\hline
+\textbf{Preconditions} & Máy đang Running \\
+\hline
+\textbf{Postconditions} & Máy sấy ngừng hoạt động hoàn toàn. Phiên làm việc của mẻ sấy được lưu trữ thành công để phục vụ việc tính toán KPI và báo cáo lịch sử (UC-14). \\
+\hline
+\textbf{Normal flow} & 
+1. Người dùng nhấn nút "Dừng" trên giao diện giám sát máy đang hoạt động.\newline
+2. Hệ thống gửi lệnh "STOP" đến thiết bị thông qua giao thức MQTT.\newline
+3. Hệ thống nhận tín hiệu xác nhận thiết bị đã ngừng vận hành.\newline
+4. Hệ thống cập nhật trạng thái máy về "Idle", đóng mẻ sấy hiện tại và lưu thời gian kết thúc thực tế vào cơ sở dữ liệu.\\
+\hline
+\textbf{Alternative flow} & 
+Thiết bị không phản hồi lệnh dừng (Mất kết nối): Hệ thống hiển thị cảnh báo đỏ "Mất tín hiệu điều khiển" và yêu cầu kiểm tra Gateway hoặc ngắt nguồn thủ công. \\
+\hline
+\textbf{Exceptions} & Lỗi kết nối thiết bị \\
+\hline
+\end{tabular}
+
+
+\subsubsection{Xử lý cảnh báo }
+
+\begin{tabular}{|p{3.5cm}|p{10.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-08 \\
+\hline
+\textbf{Use Case name} & Xử lý cảnh báo. \\
+\hline
+\textbf{Actors} & Nhân viên \\
+\hline
+\textbf{Description} & 
+Cho phép nhân viên ghi nhận việc tiếp nhận sự cố và cập nhật kết quả xử lý (ví dụ: đóng cửa máy, điều chỉnh lại nhiệt độ/độ ẩm) để hoàn thành quy trình quản lý sự cố và lưu trữ dữ liệu phục vụ phân tích. \\
+\hline
+\textbf{Trigger} & Chọn xử lý sự cố \\
+\hline
+\textbf{Preconditions} & Người dùng đăng nhập thành công với vai trò quản lý. Sự cố đang ở trạng thái mở (Open) \\
+\hline
+\textbf{Postconditions} & Sự cố chuyển sang trạng thái Closed và lưu ghi chú xử lý \\
+\hline
+\textbf{Normal flow} & 
+1. Người dùng chọn cảnh báo đang hiển thị (vượt nhiệt/ẩm hoặc cửa mở quá lâu). \newline
+2. Nhấn nút "Xác nhận (Acknowledge)" để dừng các tín hiệu cảnh báo tức thời. \newline
+3. Hệ thống hiển thị form nhập nội dung xử lý. \newline
+4. Người dùng nhập ghi chú phương án đã xử lý (ví dụ: "Đã đóng cửa máy", "Kiểm tra lại bộ sưởi"). \newline
+5. Nhấn nút "Giải quyết (Resolve)". \newline
+6. Hệ thống ghi nhận thời gian, tên nhân viên, nội dung xử lý và chuyển trạng thái cảnh báo sang "Đã đóng (Closed)". \\
+\hline
+\textbf{Alternative flow} & 
+- Người dùng nhấn "Resolve" nhưng chưa nhập ghi chú: Hệ thống yêu cầu nhập đầy đủ nội dung xử lý trước khi đóng sự cố. \newline - Cảnh báo đã được người khác xác nhận trước đó: Hệ thống hiển thị trạng thái hiện tại và tên người đang xử lý. \\
+\hline
+\textbf{Exceptions} & Lỗi lưu dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Xem KPI tổng quan}
+\begin{tabular}{|p{3.5cm}|p{12.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-09 \\
+\hline
+\textbf{Use Case name} & Xem KPI tổng quan \\
+\hline
+\textbf{Actors} & Quản lý \\
+\hline
+\textbf{Description} & 
+Cung cấp cho Quản lý cái nhìn tổng quan về hiệu suất vận hành toàn nhà máy hoặc từng khu vực, dựa trên dữ liệu thời gian thực và lịch sử, bao gồm: trạng thái thiết bị, sản lượng mẻ sấy, tỷ lệ hoàn thành và phân tích lỗi kỹ thuật (đặc biệt lỗi thất thoát nhiệt). \\
+\hline
+\textbf{Trigger} & Quản lý mở trang KPI \\
+\hline
+\textbf{Preconditions} & Người dùng đăng nhập thành công với vai trò quản lý. Có dữ liệu sản xuất trong hệ thống \\
+\hline
+\textbf{Postconditions} & Dashboard hiển thị đầy đủ 3 phân khu dữ liệu:\newline
+\hspace{1cm} - Trạng thái: Số lượng máy Chạy/Dừng/Lỗi.\newline
+\hspace{1cm} - Vận hành: Sản lượng theo Zone, Tỷ lệ hoàn thành, Thời gian trung bình.\newline
+\hspace{1cm}  - Phân tích lỗi: Biểu đồ Top lỗi, tần suất lỗi theo máy và biểu đồ cột về số lần mở cửa gây thất thoát nhiệt. \\
+\hline
+\textbf{Normal flow} & 
+1. Quản lý truy cập Dashboard KPI và chọn bộ lọc (thời gian, khu vực). \newline
+2. Hệ thống truy vấn CSDL để thống kê số máy theo trạng thái (Running, Idle, Error). \newline
+3. Hệ thống tổng hợp lịch sử mẻ sấy để tính: tổng số mẻ, số mẻ theo Zone, tỷ lệ hoàn thành và thời gian hoạt động trung bình. \newline
+4. Hệ thống phân tích log để xác định lỗi thường gặp, tần suất lỗi theo đầu máy và số lần cửa mở khi đang vận hành. \newline
+5. Hệ thống hiển thị dữ liệu bằng biểu đồ trực quan (tròn, cột, đường). \\
+\hline
+\textbf{Alternative flow} & 
+Không có dữ liệu trong khoảng chọn $\rightarrow$ thông báo không có dữ liệu \\
+\hline
+\textbf{Exceptions} & Lỗi truy vấn dữ liệu lớn gây chậm hệ thống; CSDL không đủ dữ liệu trong khoảng thời gian đã chọn để phân tích lỗi. \\
+\hline
+\end{tabular}
+
+\subsubsection{Thêm công thức}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-10 \\
+\hline
+\textbf{Use Case name} & Thêm công thức \\
+\hline
+\textbf{Actors} & Quản lý \\
+\hline
+\textbf{Description} & 
+Cho phép Quản lý thiết lập bộ thông số kỹ thuật tiêu chuẩn cho từng loại trái cây (nhiệt độ, ngưỡng độ ẩm, thời gian) và lưu vào thư viện để Nhân viên sử dụng khi kích hoạt mẻ sấy. \\
+\hline
+\textbf{Trigger} & Người dùng đăng nhập thành công với vai trò quản lý. Quản lý chọn Thêm công thức \\
+\hline
+\textbf{Preconditions} & Quản lý có quyền tạo công thức \\
+\hline
+\textbf{Postconditions} & Công thức mới được lưu vào hệ thống \\
+\hline
+\textbf{Normal flow} & 
+1. Quản lý chọn chức năng "Thêm mới công thức". \newline
+ 2. Nhập các thông tin bắt buộc: Tên công thức (Ví dụ: Xoài sấy dẻo), Loại trái cây. \newline
+3. Thiết lập các thông số kỹ thuật: Nhiệt độ sấy mục tiêu, Ngưỡng độ ẩm dừng, và Thời gian sấy dự kiến. \newline
+4. Hệ thống kiểm tra tính hợp lệ của dữ liệu. \newline
+5. Nhấn "Lưu", hệ thống ghi dữ liệu vào bảng Recipes và thông báo thành công.\\
+\hline
+\textbf{Alternative flow} & 
+Thông số không hợp lệ $\rightarrow$ yêu cầu nhập lại \\
+\hline
+\textbf{Exceptions} & Lỗi lưu CSDL \\
+\hline
+\end{tabular}
+
+\subsubsection{Chỉnh sửa công thức }
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-11 \\
+\hline
+\textbf{Use Case name} & Chỉnh sửa công thức \\
+\hline
+\textbf{Actors} & Quản lý \\
+\hline
+\textbf{Description} & 
+Chỉnh sửa thông số của công thức sấy hiện có. \\
+\hline
+\textbf{Trigger} & Quản lý chọn Sửa công thức \\
+\hline
+\textbf{Preconditions} & Người dùng đăng nhập thành công với vai trò quản lý. Công thức tồn tại \\
+\hline
+\textbf{Postconditions} & Thông tin công thức được cập nhật \\
+\hline
+\textbf{Normal flow} & 
+1. Quản lý chọn công thức cần chỉnh sửa từ danh sách thư viện. \newline
+2. Hệ thống hiển thị thông tin chi tiết hiện tại của công thức. \newline
+3. Quản lý thay đổi các thông số cần thiết.\newline
+ 4. Nhấn "Cập nhật". \newline
+5. Hệ thống kiểm tra điều kiện ràng buộc (Alternative Flow) và thực hiện ghi đè dữ liệu mới vào CSDL. \\
+\hline
+\textbf{Alternative flow} & 
+Công thức đang được áp dụng cho ít nhất một máy sấy ở trạng thái "Running": Hệ thống hiển thị cảnh báo "Không thể chỉnh sửa công thức khi có mẻ sấy đang hoạt động" và từ chối lưu. \\
+\hline
+\textbf{Exceptions} & Lỗi cập nhật dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Xóa công thức sấy}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-12 \\
+\hline
+\textbf{Use Case name} & Xóa công thức \\
+\hline
+\textbf{Actors} & Quản lý \\
+\hline
+\textbf{Description} & 
+Xóa công thức sấy khỏi hệ thống. \\
+\hline
+\textbf{Trigger} & Quản lý chọn Xóa công thức\\
+\hline
+\textbf{Preconditions} & Người dùng đăng nhập thành công với vai trò quản lý. Công thức không được sử dụng trong mẻ đang chạy \\
+\hline
+\textbf{Postconditions} & Công thức bị xóa khỏi CSDL \\
+\hline
+\textbf{Normal flow} & 
+1. Quản lý chọn công thức muốn loại bỏ. \newline
+2. Hệ thống hiển thị thông báo xác nhận: "Bạn có chắc chắn muốn xóa công thức này? Hành động này không thể hoàn tác". \newline
+3. Quản lý nhấn "Xác nhận xóa". \newline
+4. Hệ thống kiểm tra các ràng buộc dữ liệu lịch sử và thực hiện xóa (hoặc ẩn) công thức khỏi danh sách hiển thị. \\
+\hline
+\textbf{Alternative flow} & 
+Công thức đã có dữ liệu trong lịch sử mẻ sấy (Batch History): Để đảm bảo tính toàn vẹn dữ liệu báo cáo, hệ thống sẽ thực hiện "Xóa mềm" thay vì xóa vĩnh viễn khỏi CSDL, giúp các báo cáo cũ vẫn truy xuất được tên công thức. \\
+\hline
+\textbf{Exceptions} & Lỗi truy vấn CSDL \\
+\hline
+\end{tabular}
+
+\subsubsection{Tra cứu lịch sử mẻ sấy}
+\begin{tabular}{|p{3.5cm}|p{11.25cm}|}
+\hline
+\textbf{Use Case ID} & UC-13 \\
+\hline
+\textbf{Use Case name} & Tra cứu lịch sử mẻ sấy \\
+\hline
+\textbf{Actors} & Quản lý \\
+\hline
+\textbf{Description} & 
+Cho phép Quản lý truy vấn và đối soát toàn bộ dữ liệu sản xuất trong quá khứ. Hệ thống hỗ trợ lọc đa chiều (theo thời gian, khu vực, thiết bị, hoặc loại trái cây) để phân tích hiệu suất, tìm ra công thức sấy tối ưu và truy vết nguyên nhân các mẻ sấy bị lỗi. \\
+\hline
+\textbf{Trigger} & Quản lý mở mục Lịch sử mẻ sấy \\
+\hline
+\textbf{Preconditions} & Có dữ liệu mẻ sấy trong hệ thống. Người dùng đăng nhập thành công với vai trò quản lý. \\
+\hline
+\textbf{Postconditions} & Quản lý nắm bắt được bức tranh chi tiết về lịch sử vận hành. Các mẻ sấy lỗi được đánh dấu đỏ để dễ dàng nhận diện và kiểm tra máy sấy hoặc khu vực tương ứng. \\
+\hline
+\textbf{Normal flow} & 
+1. Quản lý truy cập vào mục "Lịch sử sản xuất". \newline
+2. Hệ thống hiển thị các bộ lọc: Khoảng thời gian (Từ ngày - Đến ngày), Khu vực (Zone), Mã máy sấy, và Loại công thức. \newline
+3. Quản lý nhập/chọn tiêu chí cần tra cứu và nhấn "Tìm kiếm". \newline
+4. Hệ thống truy vấn bảng Batch\_History và liên kết (Join) với bảng Devices, Recipes để lấy thông tin chi tiết. \newline
+5. Hệ thống hiển thị danh sách kết quả gồm: Mã mẻ, Tên máy, Khu vực, Công thức đã dùng, Thời gian bắt đầu/kết thúc, và Trạng thái (Hoàn thành/Lỗi). \newline
+6. Quản lý nhấn vào một mẻ sấy cụ thể để xem biểu đồ nhiệt độ/độ ẩm thực tế của mẻ đó. \\
+\hline
+\textbf{Alternative flow} & 
+1. Không tìm thấy dữ liệu $\rightarrow$ hiển thị thông báo\newline
+2. Ở bước 5, có thể kết thúc chức năng.\\
+\hline
+\textbf{Exceptions} & Lỗi truy vấn dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Xuất báo cáo dữ liệu}
+\begin{tabular}{|p{3.5cm}|p{10.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-14 \\
+\hline
+\textbf{Use Case name} & Xuất dữ liệu báo cáo \\
+\hline
+\textbf{Actors} & Quản lý \\
+\hline
+\textbf{Description} & 
+Cho phép Quản lý kết xuất dữ liệu sản xuất (Lịch sử mẻ sấy, Nhật ký lỗi, KPI hiệu suất) ra các định dạng tệp tin văn phòng (Excel, PDF)\\
+\hline
+\textbf{Trigger} & Chọn Xuất báo cáo \\
+\hline
+\textbf{Preconditions} & Có dữ liệu trong hệ thống. Người dùng đăng nhập thành công với vai trò quản lý. \\
+\hline
+\textbf{Postconditions} & File báo cáo được tạo và tải về thành công \\
+\hline
+\textbf{Normal flow} & 
+1. Quản lý chọn loại báo cáo cần xuất (Báo cáo mẻ sấy, Báo cáo sự cố hoặc Báo cáo KPI).\newline
+ 2. Chọn các tiêu chí lọc (Thời gian, Khu vực, Máy sấy). \newline
+3. Chọn định dạng tệp tin (Excel để phân tích số liệu hoặc PDF để in ấn). \newline
+4. Hệ thống truy vấn dữ liệu, áp dụng mẫu (Template) báo cáo chuẩn của nhà máy. \newline
+5. Hệ thống khởi tạo tệp tin và tự động kích hoạt trình tải xuống trên trình duyệt.\\
+\hline
+\textbf{Alternative flow} & 
+ - Khoảng thời gian chọn không có dữ liệu: Hệ thống hiển thị thông báo "Không có dữ liệu để xuất báo cáo" và yêu cầu chọn lại.\newline
+- Dữ liệu quá lớn: Hệ thống hiển thị thông báo "Đang xử lý dữ liệu lớn, vui lòng đợi trong giây lát" và gửi tệp tin sau khi hoàn tất. \\
+\hline
+\textbf{Exceptions} & Lỗi tạo file hoặc lỗi hệ thống \\
+\hline
+\end{tabular}
+
+\subsubsection{Phân tích dữ liệu (AI)}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-15 \\
+\hline
+\textbf{Use Case name} & Phân tích dữ liệu (AI) \\
+\hline
+\textbf{Actors} & Quản lý \\
+\hline
+\textbf{Description} & 
+Sử dụng dữ liệu lịch sử và thông số thực tế (nhiệt độ, độ ẩm hiện tại) để dự báo thời gian hoàn thành mẻ sấy và đề xuất điều chỉnh ngưỡng thông số nhằm tối ưu hóa chất lượng sản phẩm (giảm tỷ lệ lỗi). \\
+\hline
+\textbf{Trigger} & Quản lý mở chức năng hỗ trợ AI \\
+\hline
+\textbf{Preconditions} & Có đủ dữ liệu lịch sử để phân tích. Người dùng đăng nhập thành công với vai trò quản lý. \\
+\hline
+\textbf{Postconditions} & Biểu đồ dự báo và đề xuất được hiển thị \\
+\hline
+\textbf{Normal flow} & 
+1. Quản lý chọn mẻ sấy đang hoạt động hoặc tập dữ liệu lịch sử của một loại trái cây. \newline
+2. Hệ thống sử dụng mô hình phân tích xu hướng (Trend Analysis) dựa trên tốc độ giảm độ ẩm. \newline
+3. Hệ thống hiển thị biểu đồ dự báo: "Thời gian dự kiến kết thúc". \newline
+4. Hệ thống đưa ra khuyến nghị: "Nên tăng/giảm nhiệt độ 2 độ C để rút ngắn thời gian sấy dựa trên các mẻ sấy thành công nhất trong quá khứ". \\
+\hline
+\textbf{Alternative flow} & 
+- Dữ liệu lịch sử quá ít (dưới 5 mẻ sấy cùng loại): Hệ thống thông báo "Dữ liệu chưa đủ để thực hiện phân tích dự báo". \\
+\hline
+\textbf{Exceptions} & Lỗi dịch vụ AI hoặc lỗi xử lý dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Tạo người dùng mới}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-16 \\
+\hline
+\textbf{Use Case name} & Tạo  người dùng mới \\
+\hline
+\textbf{Actors} & Quản trị viên \\
+\hline
+\textbf{Description} & 
+Cho phép Quản trị viên khởi tạo tài khoản truy cập cho nhân viên mới vào hệ thống, thiết lập các thông tin định danh cơ bản để phục vụ việc quản lý nhân sự và bảo mật. \\
+\hline
+\textbf{Trigger} & Quản trị viên chọn Thêm người dùng \\
+\hline
+\textbf{Preconditions} & Quản trị viên đăng nhập thành công \\
+\hline
+\textbf{Postconditions} & Tài khoản mới được tạo và lưu trong hệ thống \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên truy cập mục quản lý tài khoản và chọn chức năng "Thêm người dùng". \newline
+2. Nhập các thông tin bắt buộc: Tên đăng nhập, Họ tên, Email và Mật khẩu khởi tạo. \newline
+3. Hệ thống kiểm tra tính hợp lệ của dữ liệu và kiểm tra trùng lặp tên đăng nhập trong CSDL. \newline
+4. Nhấn "Lưu", hệ thống mã hóa mật khẩu và tạo bản ghi người dùng mới ở trạng thái chờ phân quyền. \\
+\hline
+\textbf{Alternative flow} & 
+Tên đăng nhập đã tồn tại $\rightarrow$ yêu cầu nhập lại \\
+\hline
+\textbf{Exceptions} & Lỗi lưu dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Phân quyền và khu vực}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-17 \\
+\hline
+\textbf{Use Case name} & Phân quyền và khu vực \\
+\hline
+\textbf{Actors} & Quản trị viên \\
+\hline
+\textbf{Description} & 
+Thiết lập vai trò (Role) và chỉ định phạm vi giám sát (Zone) cho người dùng. Đây là cơ sở để hệ thống tự động lọc danh sách máy sấy trên Dashboard và kiểm soát các quyền điều khiển thiết bị của từng nhân viên. \\
+\hline
+\textbf{Trigger} & Quản trị viên chỉnh sửa thông tin người dùng \\
+\hline
+\textbf{Preconditions} & Người dùng tồn tại trong hệ thống. Người dùng đăng nhập thành công với vai trò quản trị viên. \\
+\hline
+\textbf{Postconditions} & Vai trò và khu vực được cập nhật thành công \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên chọn một người dùng cụ thể từ danh sách tài khoản. \newline
+2. Hệ thống hiển thị các tùy chọn Vai trò (Admin, Manager, Operator) và danh mục các Khu vực (Zones) hiện có trong nhà máy. \newline
+3. Quản trị viên chọn 01 vai trò và tích chọn một hoặc nhiều khu vực mà người dùng đó được phép quản lý. \newline
+4. Nhấn "Lưu", hệ thống cập nhật thông tin vào các bảng phân quyền trong CSDL. \newline
+5. Quyền hạn mới sẽ có hiệu lực ngay trong phiên làm việc tiếp theo của người dùng đó. \\
+\hline
+\textbf{Alternative flow} & 
+ - Vai trò không hợp lệ: Yêu cầu chọn lại từ danh mục có sẵn.\newline - Chưa gán khu vực cho Nhân viên: Hệ thống hiển thị cảnh báo "Nhân viên vận hành cần được gán ít nhất một khu vực để làm việc". \\
+\hline
+\textbf{Exceptions} & Lỗi cập nhật dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Thêm khu vực}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-18 \\
+\hline
+\textbf{Use Case name} & Thêm khu vực \\
+\hline
+\textbf{Actors} & Quản trị viên \\
+\hline
+\textbf{Description} & 
+Cho phép quản trị viên tạo mới một khu vực (Zone) trong hệ thống 
+(ví dụ: Khu A, Khu B, Khu C). \\
+\hline
+\textbf{Trigger} & 
+Chọn chức năng “Thêm Khu vực”. \\
+\hline
+\textbf{Preconditions} & 
+ Người dùng đăng nhập thành công với vai trò quản trị viên.
+ \\
+\hline
+\textbf{Postconditions} & 
+Khu vực mới được tạo thành công.\newline
+Thông tin được lưu vào cơ sở dữ liệu.
+ \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên chọn chức năng "Thêm Khu vực". \newline
+2. Nhập tên khu vực (ví dụ: Khu sấy A) và mô tả vị trí hoặc đặc điểm khu vực. \newline
+3. Hệ thống kiểm tra tính duy nhất của tên khu vực trong cơ sở dữ liệu. \newline
+4. Hệ thống thực hiện ghi bản ghi mới vào bảng Zones. \newline
+5. Thông báo tạo khu vực thành công và hiển thị khu vực mới trên danh sách quản lý.
+ \\
+\hline
+\textbf{Alternative flow} & 
+- Tên khu vực đã tồn tại: Hệ thống hiển thị cảnh báo "Tên khu vực này đã được sử dụng" và yêu cầu nhập tên khác.\newline
+Dữ liệu để trống: Hệ thống yêu cầu nhập đầy đủ thông tin bắt buộc (Tên khu vực).
+ \\
+\hline
+\textbf{Exceptions} & 
+Lỗi hệ thống hoặc cơ sở dữ liệu. \\
+\hline
+\end{tabular}
+
+\subsubsection{Sửa Khu vực}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-19 \\
+\hline
+\textbf{Use Case name} & Sửa khu vực \\
+\hline
+\textbf{Actors} & Quản trị viên \\
+\hline
+\textbf{Description} & 
+Cho phép Quản trị viên cập nhật thông tin định danh của khu vực. Khi thông tin khu vực thay đổi, hệ thống sẽ tự động cập nhật đồng bộ cho tất cả thiết bị và nhân viên đang thuộc khu vực đó. \\
+\hline
+\textbf{Trigger} & 
+Quản trị viên chọn một Khu vực và nhấn “Chỉnh sửa Khu vực”. \\
+\hline
+\textbf{Preconditions} & 
+ Quản trị viên đã đăng nhập.\newline
+Khu vực tồn tại trong hệ thống.
+\\
+\hline
+\textbf{Postconditions} & 
+Thông tin Khu vực được cập nhật thành công. \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên chọn khu vực cần sửa từ danh sách. \newline
+2. Hệ thống hiển thị form thông tin hiện tại. \newline
+3. Quản trị viên thay đổi tên hoặc mô tả. \newline
+4. Hệ thống kiểm tra ràng buộc (tên mới không được trùng với các khu vực khác). \newline
+5. Hệ thống cập nhật dữ liệu và thông báo hoàn tất.
+ \\
+\hline
+\textbf{Alternative flow} & 
+Dữ liệu không hợp lệ $\rightarrow$ yêu cầu chỉnh sửa lại. \\
+\hline
+\textbf{Exceptions} & 
+Lỗi lưu dữ liệu hoặc mất kết nối hệ thống. \\
+\hline
+\end{tabular}
+
+\subsubsection{ Xóa Khu vực}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-20 \\
+\hline
+\textbf{Use Case name} & Xóa Khu vực \\
+\hline
+\textbf{Actors} & Quản trị viên \\
+\hline
+\textbf{Description} & 
+Cho phép xóa một Khu vực khỏi hệ thống nếu không còn sử dụng. \\
+\hline
+\textbf{Trigger} & 
+Quản trị viên chọn Khu vực và nhấn “Xóa Khu vực”. \\
+\hline
+\textbf{Preconditions} & 
+Người dùng đăng nhập thành công với vai trò
+quản trị viên.\newline
+Khu vực tồn tại.\newline
+Khu vực không đang được sử dụng bởi thiết bị
+hoặc mẻ sấy.
+ \\
+\hline
+\textbf{Postconditions} & 
+Khu vực bị xóa khỏi hệ thống. \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên chọn khu vực cần xóa. \newline
+2. Hệ thống kiểm tra các ràng buộc toàn vẹn dữ liệu (Foreign Key). \newline
+3. Nếu khu vực không chứa thiết bị và không có nhân viên phụ trách, hệ thống hiển thị hộp thoại xác nhận xóa. \newline
+4. Quản trị viên xác nhận. \newline
+5. Hệ thống xóa bản ghi khỏi bảng Zones và cập nhật lại giao diện.
+ \\
+\hline
+\textbf{Alternative flow} & 
+Khu vực đang chứa thiết bị/nhân viên: Hệ thống từ chối xóa và hiển thị thông báo "Không thể xóa khu vực đang có thiết bị hoạt động hoặc nhân viên phụ trách. Vui lòng di dời thiết bị/nhân viên trước khi thực hiện". \\
+\hline
+\textbf{Exceptions} & 
+Lỗi hệ thống hoặc cơ sở dữ liệu. \\
+\hline
+\end{tabular}
+
+
+\subsubsection{Thiết lập ngưỡng hệ thống}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-21 \\
+\hline
+\textbf{Use Case name} & Thiết lập ngưỡng hệ thống \\
+\hline
+\textbf{Actors} & Quản trị viên \\
+\hline
+\textbf{Description} & 
+Cho phép Quản trị viên cài đặt các giá trị giới hạn an toàn (nhiệt độ tối đa, độ ẩm tối thiểu) áp dụng cho toàn bộ nhà máy. Các thông số này là cơ sở để hệ thống tự động kích hoạt cảnh báo khi dữ liệu từ cảm biến gửi về vượt quá ngưỡng cho phép. \\
+\hline
+\textbf{Trigger} & Quản trị viên mở mục Cấu hình hệ thống \\
+\hline
+\textbf{Preconditions} & Người dùng đăng nhập thành công với vai trò quản trị viên \\
+\hline
+\textbf{Postconditions} & Ngưỡng mới được áp dụng vào hệ thống \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên truy cập mục "Cấu hình hệ thống".\newline 2. Hệ thống hiển thị các ngưỡng hiện tại.\newline 3. Quản trị viên nhập giá trị ngưỡng mới cho từng loại thông số (Ví dụ: Ngưỡng nhiệt độ cảnh báo > 80°C). \newline 4. Hệ thống kiểm tra tính hợp lệ (giá trị phải nằm trong dải đo của cảm biến).\newline 5. Nhấn "Lưu", hệ thống cập nhật vào bảng System\_Configs và đồng bộ thông số này với các bộ lọc dữ liệu thời gian thực. \\
+\hline
+\textbf{Alternative flow} & 
+Giá trị không hợp lệ $\rightarrow$ yêu cầu nhập lại \\
+\hline
+\textbf{Exceptions} & Lỗi lưu cấu hình \\
+\hline
+\end{tabular}
+
+\subsubsection{Thêm thiết bị IoT}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-22 \\
+\hline
+\textbf{Use Case name} & Thêm thiết bị IoT \\
+\hline
+\textbf{Actors} & Quản trị viên \\
+\hline
+\textbf{Description} & 
+Khai báo máy sấy mới vào hệ thống và cấu hình thông tin MQTT Feed để nhận/gửi dữ liệu. \\
+\hline
+\textbf{Trigger} & Chọn chức năng Thêm thiết bị \\
+\hline
+\textbf{Preconditions} & Người dùng đăng nhập thành công với vai trò quản trị viên \\
+\hline
+\textbf{Postconditions} & Thiết bị mới được lưu vào hệ thống và sẵn sàng kết nối MQTT \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên chọn chức năng "Thêm thiết bị mới". \newline
+2. Nhập thông tin định danh: Tên máy sấy, Mã số thiết bị (Device ID/MAC Address). \newline
+3. Chọn Khu vực (Zone) mà máy sấy này được lắp đặt. \newline
+4. Cấu hình đường dẫn dữ liệu (MQTT Topic) để hệ thống biết nơi nhận dữ liệu cảm biến và gửi lệnh điều khiển. \newline
+5. Nhấn "Lưu", hệ thống khởi tạo bản ghi trong bảng Devices với trạng thái mặc định là "Idle". \\
+\hline
+\textbf{Alternative flow} & 
+ID thiết bị đã tồn tại $\rightarrow$ yêu cầu nhập lại \\
+\hline
+\textbf{Exceptions} & ID thiết bị đã tồn tại trong hệ thống; MQTT Topic bị trùng lặp; Lỗi không thể kết nối thử nghiệm (Ping) tới thiết bị vừa khai báo. \\
+\hline
+\end{tabular}
+
+\subsubsection{Ẩn thiết bị IoT}
+\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+\hline
+\textbf{Use Case ID} & UC-23 \\
+\hline
+\textbf{Use Case name} & Ẩn thiết bị IoT \\
+\hline
+\textbf{Actors} & Admin \\
+\hline
+\textbf{Description} & 
+Chuyển trạng thái máy sấy sang "Ngừng hoạt động" (Inactive). Thiết bị sẽ không xuất hiện trong các danh sách vận hành (Kích hoạt mẻ sấy) nhưng toàn bộ dữ liệu lịch sử của thiết bị vẫn được giữ lại trong CSDL để phục vụ báo cáo và tra cứu. \\
+\hline
+\textbf{Trigger} & Chọn chức năng Ẩn thiết bị \\
+\hline
+\textbf{Preconditions} & Thiết bị tồn tại trong hệ thống. Người dùng đăng nhập thành công với vai trò quản trị viên. \\
+\hline
+\textbf{Postconditions} & Thiết bị chuyển sang trạng thái Ngừng sử dụng và không hiển thị khi kích hoạt mẻ sấy \\
+\hline
+\textbf{Normal flow} & 
+1. Quản trị viên chọn thiết bị cần ẩn từ danh sách quản lý. \newline
+2. Hệ thống kiểm tra trạng thái thực tế của máy (phải là Idle). \newline
+3. Người dùng nhấn xác nhận "Ẩn/Ngừng sử dụng". \newline
+4. Hệ thống cập nhật cột Status thành 'Inactive' trong bảng MACHINE. \newline
+5. Thiết bị được loại bỏ khỏi giao diện Dashboard của nhân viên. \\
+\hline
+\textbf{Alternative flow} & 
+
+Thiết bị đang trong mẻ sấy (Running): Hệ thống từ chối ẩn và thông báo "Không thể ngừng sử dụng thiết bị đang vận hành. Vui lòng kết thúc mẻ sấy trước".\\
+\hline
+\textbf{Exceptions} & Lỗi cập nhật dữ liệu \\
+\hline
+\end{tabular}
+
+\subsubsection{Quản lý thông báo cá nhân}
+
+\begin{tabular}{|p{3.5cm}|p{12cm}|}
+\hline
+\textbf{Use Case ID} & UC-24 \\
+\hline
+\textbf{Use Case name} & Quản lý thông báo cá nhân \\
+\hline
+\textbf{Actors} & Quản trị viên, Quản lý, Nhân viên \\
+\hline
+\textbf{Description} &
+Cho phép người dùng xem danh sách các thông báo hệ thống phát sinh (cảnh báo, sự kiện, thay đổi trạng thái mẻ sấy) phù hợp với vai trò và khu vực quản lý, đồng thời cập nhật trạng thái đã đọc để theo dõi công việc hiệu quả. \\
+\hline
+\textbf{Trigger} &
+Người dùng nhấn vào biểu tượng thông báo (chuông) trên thanh điều hướng. \\
+\hline
+\textbf{Preconditions} &
+1. Người dùng đã đăng nhập vào hệ thống. \newline
+2. Hệ thống đã có các thông báo được tạo trong cơ sở dữ liệu. \\
+\hline
+\textbf{Postconditions} &
+Trạng thái đọc của thông báo được cập nhật vào cơ sở dữ liệu. \\
+\hline
+\textbf{Normal flow} &
+1. Người dùng nhấn vào biểu tượng thông báo trên giao diện chính. \newline
+2. Hệ thống truy vấn bảng NOTIFICATION kết hợp với NOTIFICATION\_ROLE để lọc thông báo theo vai trò của người dùng hiện tại. \newline
+3. Hệ thống tiếp tục lọc theo khu vực (Zone) mà người dùng được phân quyền (đối với Manager và Operator). \newline
+4. Hệ thống kiểm tra bảng NOTIFICATION\_READ để phân biệt các thông báo "Chưa đọc" và "Đã đọc". \newline
+5. Người dùng chọn một thông báo để xem chi tiết hoặc nhấn "Đánh dấu tất cả là đã đọc". \newline
+6. Hệ thống ghi nhận thời gian đọc vào trường readAt trong bảng NOTIFICATION\_READ tương ứng với userId. \newline
+7. Giao diện cập nhật lại số lượng thông báo chưa đọc. \\
+\hline
+\textbf{Alternative flow} &
+- Không có thông báo mới: Hệ thống hiển thị nội dung "Bạn không có thông báo nào mới" trong danh sách sổ xuống. \\
+\hline
+\textbf{Exceptions} &
+Lỗi truy vấn cơ sở dữ liệu hoặc lỗi cập nhật trạng thái đọc. \\
+\hline
+\end{tabular}

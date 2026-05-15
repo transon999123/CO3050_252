@@ -1,0 +1,140 @@
+
+\section{Cơ sở lí thuyết}
+\subsection{Công nghệ sử dụng}
+\begin{description}
+    \item[Ngôn ngữ lập trình:] PHP
+    \item[Cơ sở dữ liệu:] MySQL
+    \item[Kết nối DB:] PDO (PHP Data Objects)
+    \item[Frontend:] HTML, CSS, JavaScript, Bootstrap
+    \item[Kiến trúc:] MVC (Model - View - Controller)
+\end{description}
+
+\subsection{Thư viện và công nghệ chi tiết}
+\begin{itemize}
+\item \textbf{Ngôn ngữ lập trình PHP: }
+Hệ thống sử dụng ngôn ngữ PHP phiên bản 7.4 trở lên. Đây là một ngôn ngữ lập trình kịch bản máy chủ (Server-side scripting) mạnh mẽ, được thiết kế đặc biệt cho phát triển web. 
+\begin{itemize}
+    \item \textbf{Cơ chế hoạt động:} Mã PHP được thực thi trên máy chủ Apache, sau đó kết quả được trả về trình duyệt dưới dạng HTML thuần túy. Điều này giúp bảo vệ mã nguồn backend và cho phép xử lý các logic nghiệp vụ phức tạp trước khi hiển thị cho người dùng.
+    \item \textbf{Tính tương thích:} PHP dễ dàng tích hợp với các hệ quản trị cơ sở dữ liệu phổ biến, đặc biệt là MySQL, thông qua các phần mở rộng như PDO.
+    \item \textbf{Khả năng mở rộng:} Dù không sử dụng các framework có sẵn (như Laravel hay CodeIgniter) theo yêu cầu nghiêm ngặt của đề bài, PHP thuần vẫn cung cấp đầy đủ các tính năng để xây dựng kiến trúc MVC hướng đối tượng (OOP).
+\end{itemize}
+\item \textbf{Hệ quản trị cơ sở dữ liệu MySQL: }
+Dữ liệu của website được quản lý bởi MySQL – một hệ quản trị cơ sở dữ liệu quan hệ (RDBMS) mã nguồn mở phổ biến nhất thế giới.
+\begin{itemize}
+    \item \textbf{Cấu trúc quan hệ:} Dữ liệu được tổ chức thành các bảng có mối liên kết chặt chẽ (như \texttt{orders} liên kết với \texttt{users} qua \texttt{user\_id}), giúp đảm bảo tính toàn vẹn và nhất quán của dữ liệu.
+    \item \textbf{Hiệu suất:} MySQL có khả năng truy vấn nhanh, xử lý được lượng bản ghi lớn, phù hợp cho một website bán hàng với danh mục sản phẩm và tin tức đa dạng.
+\end{itemize}
+\item \textbf{HTML5 và CSS3:}
+\begin{itemize}
+    \item \textbf{HTML5:} Sử dụng các thẻ ngữ nghĩa (Semantic Tags) như \texttt{<header>}, \texttt{<footer>}, \texttt{<article>} giúp cấu trúc trang web rõ ràng, hỗ trợ tốt cho khả năng truy cập và SEO.
+    \item \textbf{CSS3:} Áp dụng các thuộc tính nâng cao như Flexbox và Grid để dàn trang, cùng các hiệu ứng chuyển động (Transitions/Animations) giúp tăng trải nghiệm người dùng.
+\end{itemize}
+    \item \textbf{Bootstrap:}
+Hệ thống sử dụng Bootstrap để hiện thực Responsive Design.
+\begin{itemize}
+    \item \textbf{Hệ thống Grid (12 columns):} Cho phép giao diện tự động co giãn và thay đổi bố cục linh hoạt trên nhiều loại thiết bị (Mobile, Tablet, Desktop) mà không cần viết quá nhiều mã CSS tùy chỉnh.
+    \item \textbf{Thành phần giao diện (UI Components):} Tận dụng các thành phần có sẵn như Navbar, Modals, và Cards để xây dựng giao diện chuyên nghiệp và nhất quán.
+\end{itemize}
+    \begin{itemize}
+        \item \textit{Ưu điểm:} Hỗ trợ thiết kế Responsive tốt, thư viện thành phần giao diện phong phú.
+        \item \textit{Nhược điểm:} File CSS khá nặng nếu không tối ưu, có thể gây trùng lặp style.
+    \end{itemize}
+    \item \textbf{JavaScript và Kiểm tra dữ liệu (Client-side Validation): }
+JavaScript đóng vai trò xử lý các tương tác động trên trình duyệt.
+\begin{itemize}
+    \item \textbf{Validation:} Kiểm tra dữ liệu ngay khi người dùng nhập vào các form đăng ký/đăng nhập để giảm tải cho server và tăng tốc độ phản hồi[cite: 63, 83].
+    \item \textbf{Hiệu ứng:} Kết hợp các thư viện như Swiper.js để tạo các bộ trượt sản phẩm (Carousel) sinh động
+    \end{itemize}
+    \item \textbf{PDO:}
+    Thay vì sử dụng các hàm \texttt{mysqli\_*} truyền thống, hệ thống sử dụng \textbf{PDO (PHP Data Objects)} để quản lý kết nối.
+\begin{itemize}
+    \item \textbf{Tính nhất quán:} PDO cung cấp một giao diện lập trình đồng nhất, cho phép dễ dàng chuyển đổi giữa các loại CSDL khác nhau nếu cần thiết.
+    \item \textbf{Bảo mật cao:} Hỗ trợ \textit{Prepared Statements} và \textit{Parameter Binding}, giúp loại bỏ hoàn toàn nguy cơ bị tấn công SQL Injection – một yêu cầu bắt buộc trong bảo mật ứng dụng web[cite: 26, 154].
+\end{itemize}
+    \begin{itemize}
+        \item \textit{Ưu điểm:} Hỗ trợ chuẩn SQL chung, bảo mật cao chống SQL Injection qua Prepared Statements.
+        \item \textit{Nhược điểm:} Đòi hỏi kiểm soát kiểu dữ liệu (bind param) chặt chẽ.
+    \end{itemize}
+    \item \textbf{PHP Session:} Sử dụng để lưu trữ trạng thái đăng nhập và dữ liệu giỏ hàng tạm thời. Cần lưu ý bảo mật chống \textit{Session Hijacking}.
+\end{itemize}
+
+\subsection{Đánh giá ưu, nhược điểm hệ thống}
+\begin{itemize}
+    \item \textbf{Ưu điểm:} 
+    \begin{itemize}
+        \item Dễ dàng triển khai trên các môi trường phổ biến như XAMPP/Apache.
+        \item Cấu trúc MVC giúp tách biệt logic và giao diện, dễ bảo trì.
+    \end{itemize}
+    \item \textbf{Nhược điểm:}
+    \begin{itemize}
+        \item Cần bổ sung cơ chế kiểm tra CSRF.
+        \item Hệ thống phân quyền (RBAC) cần chi tiết hơn giữa các cấp độ Admin và Member.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Bảo mật trong ứng dụng Web}
+Bảo mật là một trong những yếu tố quan trọng nhất khi triển khai các hệ thống thương mại điện tử. Theo yêu cầu của đề tài, hệ thống đã được phân tích và áp dụng các biện pháp phòng chống các lỗ hổng bảo mật phổ biến sau:
+
+\subsubsection{Lỗ hổng SQL Injection (SQLi)}
+\textbf{Khái niệm:} SQL Injection là kỹ thuật chèn các đoạn mã SQL độc hại vào dữ liệu đầu vào (input) của ứng dụng web, nhằm thao túng cơ sở dữ liệu. Nếu không được kiểm tra, kẻ tấn công có thể đăng nhập trái phép, đánh cắp hoặc xóa toàn bộ dữ liệu.
+
+\textbf{Biện pháp phòng chống:} Hệ thống không sử dụng việc nối chuỗi trực tiếp để tạo câu lệnh SQL. Thay vào đó, toàn bộ dự án sử dụng \textbf{PDO (PHP Data Objects)} kết hợp với \textbf{Prepared Statements}. Cơ chế này tách biệt hoàn toàn giữa cấu trúc câu lệnh SQL và dữ liệu, biến dữ liệu đầu vào thành các tham số an toàn.
+
+\textit{Ví dụ minh họa cách triển khai trong dự án:}
+\begin{lstlisting}[language=PHP, basicstyle=\ttfamily\small, frame=single]
+// Cach code KHONG an toan (De bi SQL Injection)
+$sql = "SELECT * FROM users WHERE username = '" . $_POST['user'] . "'";
+$db->query($sql);
+
+// Cach code AN TOAN dang su dung trong he thong (PDO Prepared Statement)
+$stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+$stmt->bindParam(':username', $username);
+$stmt->execute();
+\end{lstlisting}
+
+\subsubsection{Lỗ hổng Cross-Site Scripting (XSS)}
+\textbf{Khái niệm:} XSS xảy ra khi ứng dụng web hiển thị dữ liệu do người dùng nhập vào mà không qua quá trình lọc (sanitization) hoặc mã hóa (encoding). Kẻ tấn công có thể chèn các mã JavaScript độc hại vào phần bình luận sản phẩm hoặc thông tin liên hệ. Khi quản trị viên hoặc người dùng khác xem trang, đoạn mã này sẽ được thực thi, dẫn đến việc mất cắp cookie hoặc session.
+
+\textbf{Biện pháp phòng chống:} Mọi dữ liệu được lấy từ CSDL trước khi in ra giao diện (View) đều được xử lý thông qua hàm \texttt{htmlspecialchars()} của PHP để chuyển đổi các ký tự đặc biệt thành các thực thể HTML (HTML entities).
+
+\begin{lstlisting}[language=PHP, basicstyle=\ttfamily\small, frame=single]
+// Du lieu hien thi an toan tren file View (HTML)
+echo htmlspecialchars($comment['content'], ENT_QUOTES, 'UTF-8');
+\end{lstlisting}
+
+\subsubsection{Bảo mật Session (Session Hijacking \& Fixation)}
+Do giỏ hàng và trạng thái đăng nhập được lưu trữ thông qua PHP Session, việc bảo mật phiên làm việc là bắt buộc. Hệ thống đã triển khai các cấu hình nâng cao để bảo vệ Session:
+\begin{itemize}
+    \item Sử dụng \texttt{session\_regenerate\_id(true)} ngay sau khi người dùng đăng nhập thành công để cấp phát một ID phiên mới, ngăn chặn tấn công \textit{Session Fixation}.
+    \item Ngăn chặn JavaScript truy cập vào Session Cookie bằng cách thiết lập tham số \texttt{HttpOnly}.
+\end{itemize}
+
+\subsubsection{Các giải pháp bảo mật đã triển khai}
+\begin{itemize}
+    \item \textbf{Mã hóa mật khẩu:} Sử dụng thuật toán băm mạnh thông qua hàm \texttt{password\_hash()} trước khi lưu vào CSDL[cite: 171].
+    \item \textbf{Phòng chống SQL Injection:} Triển khai PDO Prepared Statements cho tất cả các form đầu vào[cite: 154, 172].
+    \item \textbf{Quản lý phiên (Session):} Sử dụng PHP Session để lưu trạng thái người dùng, đồng thời lưu ý các cấu hình để ngăn chặn Session Hijacking[cite: 156, 157].
+\end{itemize}
+
+\subsection{Tối ưu hóa công cụ tìm kiếm (SEO)}
+Bên cạnh chức năng, website cần có khả năng hiển thị tốt trên các công cụ tìm kiếm như Google. Hệ thống đã áp dụng các kỹ thuật SEO On-page cơ bản:
+
+\subsubsection{Cấu trúc URL thân thiện (Pretty URLs)}
+Thay vì sử dụng các tham số Query String phức tạp gây khó khăn cho việc lập chỉ mục (index) của bot tìm kiếm (ví dụ: \texttt{/index.php?controller=product\&action=detail\&id=1}), ứng dụng có thể được nâng cấp để sử dụng định tuyến lại qua file \texttt{.htaccess} của Apache, tạo ra các URL có ngữ nghĩa như: \texttt{/san-pham/ao-thun-basic-nam-1}.
+
+\subsubsection{Tối ưu hóa thẻ Meta và Semantic HTML}
+\begin{itemize}
+    \item \textbf{Thẻ Title và Description:} Mỗi trang (Trang chủ, Chi tiết sản phẩm, Tin tức) đều có tiêu đề (\texttt{<title>}) và mô tả (\texttt{<meta name="description">}) động, được lấy từ CSDL tương ứng với nội dung trang.
+    \item \textbf{Cấu trúc thẻ Heading (H1-H6):} Tuân thủ chuẩn W3C, trang web luôn có một thẻ \texttt{<h1>} duy nhất chứa từ khóa chính (ví dụ: tên sản phẩm), theo sau là các thẻ \texttt{<h2>}, \texttt{<h3>} cho các mục phụ.
+    \item \textbf{Thuộc tính Alt cho hình ảnh:} Tất cả hình ảnh tải lên thư mục \texttt{uploads/} khi hiển thị đều được gán thuộc tính \texttt{alt="[Tên sản phẩm]"} để hỗ trợ nhận diện hình ảnh cho các trình thu thập dữ liệu.
+\end{itemize}
+
+\subsection{Phân tích Kiến trúc phần mềm (Mô hình MVC)}
+Để đáp ứng yêu cầu không sử dụng Framework có sẵn, nhóm đã tự xây dựng hệ thống phân tầng dựa trên kiến trúc MVC (Model - View - Controller). Sự phân tách này mang lại tính tổ chức cao, dễ dàng bảo trì và mở rộng trong tương lai.
+
+\begin{itemize}
+    \item \textbf{Model (Tầng dữ liệu):} Đại diện cho cấu trúc dữ liệu của ứng dụng. Model chịu trách nhiệm tương tác trực tiếp với cơ sở dữ liệu MySQL thông qua lớp \texttt{Database}. Mọi truy vấn đọc, ghi, cập nhật (CRUD) đều được đóng gói tại đây.
+    \item \textbf{View (Tầng giao diện):} Chịu trách nhiệm hiển thị dữ liệu trực quan cho người dùng cuối (sử dụng HTML, CSS, JavaScript, Bootstrap). View không chứa logic nghiệp vụ phức tạp, nó chỉ nhận dữ liệu đã được xử lý từ Controller và định dạng lại để hiển thị.
+    \item \textbf{Controller (Tầng điều khiển):} Là trái tim của ứng dụng, đóng vai trò cầu nối giữa Model và View. Controller nhận các yêu cầu (HTTP Request) từ người dùng (nhấp chuột, gửi form), gọi Model tương ứng để lấy hoặc lưu dữ liệu, sau đó quyết định View nào sẽ được kết xuất (render) và trả về (HTTP Response) cho người dùng.
+\end{itemize}
+\textbf{Ưu điểm của việc tự xây dựng MVC:} Giúp các thành viên trong nhóm hiểu rõ luồng đi của dữ liệu ở mức độ thấp nhất (low-level), từ cách khởi tạo kết nối mạng đến cách bộ đệm đầu ra (output buffering) của PHP hoạt động để xuất giao diện HTML.
