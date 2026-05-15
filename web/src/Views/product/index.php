@@ -40,14 +40,43 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="font-weight-bold">Kích cỡ (Size)</label>
+                        <label class="font-weight-bold">Đánh giá tối thiểu</label>
+                        <select name="min_rating" class="form-control">
+                            <option value="0">Tất cả</option>
+                            <option value="1" <?= (isset($minRating) && $minRating == 1) ? 'selected' : '' ?>>1 sao trở lên</option>
+                            <option value="2" <?= (isset($minRating) && $minRating == 2) ? 'selected' : '' ?>>2 sao trở lên</option>
+                            <option value="3" <?= (isset($minRating) && $minRating == 3) ? 'selected' : '' ?>>3 sao trở lên</option>
+                            <option value="4" <?= (isset($minRating) && $minRating == 4) ? 'selected' : '' ?>>4 sao trở lên</option>
+                            <option value="5" <?= (isset($minRating) && $minRating == 5) ? 'selected' : '' ?>>5 sao</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">Kích cỡ</label>
                         <select name="size" class="form-control">
                             <option value="">Tất cả kích cỡ</option>
-                            <option value="S" <?= (isset($size) && $size == 'S') ? 'selected' : '' ?>>Size S</option>
-                            <option value="M" <?= (isset($size) && $size == 'M') ? 'selected' : '' ?>>Size M</option>
-                            <option value="L" <?= (isset($size) && $size == 'L') ? 'selected' : '' ?>>Size L</option>
-                            <option value="XL" <?= (isset($size) && $size == 'XL') ? 'selected' : '' ?>>Size XL</option>
-                            <option value="XXL" <?= (isset($size) && $size == 'XXL') ? 'selected' : '' ?>>Size XXL</option>
+                            <option value="S" <?= (isset($size) && $size == 'S') ? 'selected' : '' ?>>S</option>
+                            <option value="M" <?= (isset($size) && $size == 'M') ? 'selected' : '' ?>>M</option>
+                            <option value="L" <?= (isset($size) && $size == 'L') ? 'selected' : '' ?>>L</option>
+                            <option value="XL" <?= (isset($size) && $size == 'XL') ? 'selected' : '' ?>>XL</option>
+                            <option value="XXL" <?= (isset($size) && $size == 'XXL') ? 'selected' : '' ?>>XXL</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">Sắp xếp theo</label>
+                        <select name="sort_by" class="form-control">
+                            <option value="created_at" <?= (isset($sortBy) && $sortBy == 'created_at') ? 'selected' : '' ?>>Mới nhất</option>
+                            <option value="price" <?= (isset($sortBy) && $sortBy == 'price') ? 'selected' : '' ?>>Giá</option>
+                            <option value="rating" <?= (isset($sortBy) && $sortBy == 'rating') ? 'selected' : '' ?>>Đánh giá</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold">Thứ tự</label>
+                        <select name="sort_order" class="form-control">
+                            <option value="DESC" <?= (isset($sortOrder) && $sortOrder == 'DESC') ? 'selected' : '' ?>>Giảm dần</option>
+                            <option value="ASC" <?= (isset($sortOrder) && $sortOrder == 'ASC') ? 'selected' : '' ?>>Tăng dần</option>
                         </select>
                     </div>
 
@@ -75,6 +104,17 @@
                             <img src="uploads/products/<?= htmlspecialchars($firstImg) ?>" class="card-img-top product-img" alt="..." onerror="this.src='https://via.placeholder.com/300x300?text=No+Image'">
                             <div class="card-body text-center flex-column d-flex">
                                 <h6 class="card-title text-dark"><?= htmlspecialchars($p['name']) ?></h6>
+                                
+                                <!-- Hiển thị rating -->
+                                <?php if (isset($p['avg_rating']) && $p['avg_rating'] > 0): ?>
+                                    <div class="mb-2">
+                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                            <i class="fa fa-star <?= $i <= round($p['avg_rating']) ? 'text-warning' : 'text-muted' ?> small"></i>
+                                        <?php endfor; ?>
+                                        <small class="text-muted ml-1">(<?= $p['review_count'] ?? 0 ?>)</small>
+                                    </div>
+                                <?php endif; ?>
+                                
                                 <p class="card-text text-danger font-weight-bold mt-auto h5"><?= number_format($p['price'], 0, ',', '.') ?>đ</p>
                                 <a href="index.php?controller=product&action=detail&id=<?= $p['id'] ?>" class="btn btn-outline-dark btn-sm mt-3 w-100">Xem chi tiết</a>
                             </div>
@@ -94,15 +134,15 @@
         <nav aria-label="Page navigation" class="mt-4">
             <ul class="pagination justify-content-center">
                 <li class="page-item <?= ($currentPage <= 1) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="index.php?controller=product&action=index&page=<?= $currentPage - 1 ?>&keyword=<?= urlencode($keyword) ?>&category_id=<?= $categoryId ?>&size=<?= $size ?>&min_price=<?= $minPrice ?>&max_price=<?= $maxPrice ?>">Trước</a>
+                    <a class="page-link" href="index.php?controller=product&action=index&page=<?= $currentPage - 1 ?>&keyword=<?= urlencode($keyword) ?>&category_id=<?= $categoryId ?>&size=<?= $size ?>&min_price=<?= $minPrice ?>&max_price=<?= $maxPrice ?>&min_rating=<?= $minRating ?>&sort_by=<?= $sortBy ?>&sort_order=<?= $sortOrder ?>">Trước</a>
                 </li>
                 <?php for($i = 1; $i <= $totalPages; $i++): ?>
                     <li class="page-item <?= ($i == $currentPage) ? 'active' : '' ?>">
-                        <a class="page-link" href="index.php?controller=product&action=index&page=<?= $i ?>&keyword=<?= urlencode($keyword) ?>&category_id=<?= $categoryId ?>&size=<?= $size ?>&min_price=<?= $minPrice ?>&max_price=<?= $maxPrice ?>"><?= $i ?></a>
+                        <a class="page-link" href="index.php?controller=product&action=index&page=<?= $i ?>&keyword=<?= urlencode($keyword) ?>&category_id=<?= $categoryId ?>&size=<?= $size ?>&min_price=<?= $minPrice ?>&max_price=<?= $maxPrice ?>&min_rating=<?= $minRating ?>&sort_by=<?= $sortBy ?>&sort_order=<?= $sortOrder ?>"><?= $i ?></a>
                     </li>
                 <?php endfor; ?>
                 <li class="page-item <?= ($currentPage >= $totalPages) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="index.php?controller=product&action=index&page=<?= $currentPage + 1 ?>&keyword=<?= urlencode($keyword) ?>&category_id=<?= $categoryId ?>&size=<?= $size ?>&min_price=<?= $minPrice ?>&max_price=<?= $maxPrice ?>">Tiếp</a>
+                    <a class="page-link" href="index.php?controller=product&action=index&page=<?= $currentPage + 1 ?>&keyword=<?= urlencode($keyword) ?>&category_id=<?= $categoryId ?>&size=<?= $size ?>&min_price=<?= $minPrice ?>&max_price=<?= $maxPrice ?>&min_rating=<?= $minRating ?>&sort_by=<?= $sortBy ?>&sort_order=<?= $sortOrder ?>">Tiếp</a>
                 </li>
             </ul>
         </nav>

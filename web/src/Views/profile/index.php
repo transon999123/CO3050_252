@@ -1,4 +1,15 @@
 <!-- src/Views/profile/index.php -->
+<?php
+$selectedCity = '';
+$selectedDistrict = '';
+if (!empty($user['address'])) {
+    $parts = array_map('trim', explode(',', $user['address']));
+    if (count($parts) >= 3) {
+        $selectedCity = array_pop($parts);
+        $selectedDistrict = array_pop($parts);
+    }
+}
+?>
 <div class="row mt-4 mb-5">
     <!-- Sidebar Menu Profile -->
     <div class="col-md-3 mb-4">
@@ -167,9 +178,11 @@
     var citySelect = document.getElementById("city");
     var districtSelect = document.getElementById("district");
     var locData = [];
+    var selectedCity = <?= json_encode($selectedCity) ?>;
+    var selectedDistrict = <?= json_encode($selectedDistrict) ?>;
 
     //Lấy thông tin tỉnh thành từ file json clone từ "https://provinces.open-api.vn/api/v1/?depth=2"
-    axios.get("/assets/data/provinces.json")
+    axios.get("assets/css/data/provinces.json")
         .then(function (response) {
             locData = response.data;
             renderCity(locData);
@@ -180,11 +193,9 @@
 
     function renderCity(data) {
         for (const province of data) {
-            // Backend đang lưu chữ (Text), nên set value = Name
             citySelect.options[citySelect.options.length] = new Option(province.name, province.name);
         }
 
-        // Khi chọn Tỉnh/Thành phố -> lọc quận huyện của tỉnh/tp đó
         citySelect.onchange = function () {
             districtSelect.length = 1;
             if (this.value !== "") {
@@ -195,6 +206,17 @@
                     }
                 }
             }
+            if (this.value === selectedCity && selectedDistrict !== "") {
+                districtSelect.value = selectedDistrict;
+            }
         };
+
+        if (selectedCity !== "") {
+            citySelect.value = selectedCity;
+            citySelect.onchange();
+            if (selectedDistrict !== "") {
+                districtSelect.value = selectedDistrict;
+            }
+        }
     }
 </script>

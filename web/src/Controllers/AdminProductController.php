@@ -14,6 +14,8 @@ class AdminProductController extends AdminController {
     // Danh sách sản phẩm (Có phân trang & tìm kiếm)
     public function index() {
         $keyword = $_GET['keyword'] ?? '';
+        $sortBy = $_GET['sort_by'] ?? 'created_at';
+        $sortOrder = $_GET['sort_order'] ?? 'DESC';
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $limit = 5; // Số sản phẩm trên 1 trang
         
@@ -26,7 +28,7 @@ class AdminProductController extends AdminController {
         
         $offset = ($page - 1) * $limit;
         
-        $products = $this->productModel->getProducts($limit, $offset, $keyword);
+        $products = $this->productModel->getProducts($limit, $offset, $keyword, 0, '', 0, 0, $sortBy, $sortOrder);
 
         // Truyền dữ liệu sang View (View sẽ được bọc bởi Admin Layout)
         $this->renderAdmin('admin/products/index', [
@@ -34,7 +36,9 @@ class AdminProductController extends AdminController {
             'products' => $products,
             'totalPages' => $totalPages,
             'currentPage' => $page,
-            'keyword' => $keyword
+            'keyword' => $keyword,
+            'sortBy' => $sortBy,
+            'sortOrder' => $sortOrder
         ]);
     }
 

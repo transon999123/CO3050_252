@@ -4,13 +4,25 @@
         <h4 class="header-title">Danh Sách Sản Phẩm</h4>
         
         <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <a href="index.php?controller=adminProduct&action=create" class="btn btn-primary"><i class="ti-plus"></i> Thêm Sản Phẩm</a>
             </div>
-            <div class="col-md-6 text-right">
+            <div class="col-md-8 text-right">
                 <form action="index.php" method="GET" class="form-inline float-right">
                     <input type="hidden" name="controller" value="adminProduct">
                     <input type="hidden" name="action" value="index">
+                    
+                    <select name="sort_by" class="form-control mr-2">
+                        <option value="created_at" <?= (isset($sortBy) && $sortBy == 'created_at') ? 'selected' : '' ?>>Sắp xếp theo: Mới nhất</option>
+                        <option value="price" <?= (isset($sortBy) && $sortBy == 'price') ? 'selected' : '' ?>>Sắp xếp theo: Giá</option>
+                        <option value="rating" <?= (isset($sortBy) && $sortBy == 'rating') ? 'selected' : '' ?>>Sắp xếp theo: Đánh giá</option>
+                    </select>
+                    
+                    <select name="sort_order" class="form-control mr-2">
+                        <option value="DESC" <?= (isset($sortOrder) && $sortOrder == 'DESC') ? 'selected' : '' ?>>Giảm dần</option>
+                        <option value="ASC" <?= (isset($sortOrder) && $sortOrder == 'ASC') ? 'selected' : '' ?>>Tăng dần</option>
+                    </select>
+                    
                     <input type="text" name="keyword" class="form-control mr-2" placeholder="Tìm theo tên..." value="<?= htmlspecialchars($keyword) ?>">
                     <button type="submit" class="btn btn-success">Tìm kiếm</button>
                 </form>
@@ -26,6 +38,7 @@
                         <th>Tên Sản Phẩm</th>
                         <th>Danh Mục</th>
                         <th>Giá</th>
+                        <th>Đánh giá</th>
                         <th>Tồn Kho</th>
                         <th>Hành Động</th>
                     </tr>
@@ -42,6 +55,18 @@
                                 <td class="text-left"><?= htmlspecialchars($p['name']) ?></td>
                                 <td><?= htmlspecialchars($p['category_name']) ?></td>
                                 <td class="text-danger font-weight-bold"><?= number_format($p['price'], 0, ',', '.') ?>đ</td>
+                                <td>
+                                    <?php if (isset($p['avg_rating']) && $p['avg_rating'] > 0): ?>
+                                        <div class="text-center">
+                                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                <i class="fa fa-star <?= $i <= round($p['avg_rating']) ? 'text-warning' : 'text-muted' ?>"></i>
+                                            <?php endfor; ?>
+                                            <br><small class="text-muted">(<?= number_format($p['avg_rating'], 1) ?>/5 - <?= $p['review_count'] ?? 0 ?> đánh giá)</small>
+                                        </div>
+                                    <?php else: ?>
+                                        <span class="text-muted">Chưa có đánh giá</span>
+                                    <?php endif; ?>
+                                </td>
                                 <td><?= $p['stock'] ?></td>
                                 <td>
                                     <!-- Nút Sửa -->
@@ -64,7 +89,7 @@
             <ul class="pagination justify-content-center">
                 <?php for($i = 1; $i <= $totalPages; $i++): ?>
                     <li class="page-item <?= ($i == $currentPage) ? 'active' : '' ?>">
-                        <a class="page-link" href="index.php?controller=adminProduct&action=index&page=<?= $i ?>&keyword=<?= urlencode($keyword) ?>"><?= $i ?></a>
+                        <a class="page-link" href="index.php?controller=adminProduct&action=index&page=<?= $i ?>&keyword=<?= urlencode($keyword) ?>&sort_by=<?= $sortBy ?>&sort_order=<?= $sortOrder ?>"><?= $i ?></a>
                     </li>
                 <?php endfor; ?>
             </ul>

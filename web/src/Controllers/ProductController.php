@@ -17,18 +17,21 @@ class ProductController extends Controller {
         $size = $_GET['size'] ?? '';
         $minPrice = isset($_GET['min_price']) ? (int)$_GET['min_price'] : 0;
         $maxPrice = isset($_GET['max_price']) ? (int)$_GET['max_price'] : 0;
+        $minRating = isset($_GET['min_rating']) ? (float)$_GET['min_rating'] : 0;
+        $sortBy = $_GET['sort_by'] ?? 'created_at';
+        $sortOrder = $_GET['sort_order'] ?? 'DESC';
         
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $limit = 12; // Hiển thị 12 sản phẩm trên 1 trang
         
-        $totalItems = $this->productModel->countProducts($keyword, $categoryId, $size, $minPrice, $maxPrice);
+        $totalItems = $this->productModel->countProducts($keyword, $categoryId, $size, $minPrice, $maxPrice, $minRating);
         $totalPages = ceil($totalItems / $limit);
         
         if ($page < 1) $page = 1;
         if ($page > $totalPages && $totalPages > 0) $page = $totalPages;
         
         $offset = ($page - 1) * $limit;
-        $products = $this->productModel->getProducts($limit, $offset, $keyword, $categoryId, $size, $minPrice, $maxPrice);
+        $products = $this->productModel->getProducts($limit, $offset, $keyword, $categoryId, $size, $minPrice, $maxPrice, $minRating, $sortBy, $sortOrder);
         
         $categories = $this->productModel->getAllCategories();
 
@@ -42,7 +45,10 @@ class ProductController extends Controller {
             'categoryId' => $categoryId,
             'size' => $size,
             'minPrice' => $minPrice,
-            'maxPrice' => $maxPrice
+            'maxPrice' => $maxPrice,
+            'minRating' => $minRating,
+            'sortBy' => $sortBy,
+            'sortOrder' => $sortOrder
         ]);
     }
 
@@ -55,9 +61,17 @@ class ProductController extends Controller {
             die("<h3 style='text-align:center; margin-top:50px;'>Lỗi 404: Không tìm thấy sản phẩm!</h3>");
         }
 
+        // Lấy thông tin rating và reviews
+        $ratingInfo = $this->productModel->getProductAverageRating($id);
+        $reviews = $this->productModel->getProductReviews($id, 10, 0); // Lấy 10 reviews đầu tiên
+        $totalReviews = $this->productModel->countProductReviews($id);
+
         $this->renderFrontend('product/detail', [
             'page_title' => $product['name'],
-            'product' => $product
+            'product' => $product,
+            'avgRating' => $ratingInfo['avg_rating'] ?? 0,
+            'totalReviews' => $totalReviews,
+            'reviews' => $reviews
         ]);
     }
 }

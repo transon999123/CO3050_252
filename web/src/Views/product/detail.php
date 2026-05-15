@@ -61,3 +61,82 @@
         <?php endif; ?>
     </div>
 </div>
+
+<!-- Phần đánh giá và nhận xét -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h4 class="font-weight-bold mb-4">
+                    <i class="fa fa-star text-warning"></i> Đánh giá sản phẩm
+                    <?php if ($avgRating > 0): ?>
+                        <span class="badge badge-warning ml-2">
+                            <?= number_format($avgRating, 1) ?>/5
+                            <small class="text-muted"> (<?= $totalReviews ?> đánh giá)</small>
+                        </span>
+                    <?php else: ?>
+                        <small class="text-muted">Chưa có đánh giá</small>
+                    <?php endif; ?>
+                </h4>
+
+                <!-- Hiển thị sao trung bình -->
+                <?php if ($avgRating > 0): ?>
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <i class="fa fa-star <?= $i <= round($avgRating) ? 'text-warning' : 'text-muted' ?> mr-1"></i>
+                            <?php endfor; ?>
+                            <span class="ml-2 font-weight-bold"><?= number_format($avgRating, 1) ?>/5</span>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Danh sách đánh giá -->
+                <?php if (count($reviews) > 0): ?>
+                    <div class="reviews-section">
+                        <h5 class="mb-3">Nhận xét từ khách hàng (<?= $totalReviews ?>)</h5>
+                        <?php foreach ($reviews as $review): ?>
+                            <div class="border rounded p-3 mb-3 bg-light">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <strong class="text-dark"><?= htmlspecialchars($review['user_name']) ?></strong>
+                                        <small class="text-muted ml-2">
+                                            <?= date('d/m/Y', strtotime($review['created_at'])) ?>
+                                        </small>
+                                    </div>
+                                    <div class="text-warning">
+                                        <?php for ($i = 1; $i <= 5; $i++): ?>
+                                            <i class="fa fa-star <?= $i <= $review['rating'] ? 'text-warning' : 'text-muted' ?>"></i>
+                                        <?php endfor; ?>
+                                        <span class="ml-1 font-weight-bold"><?= $review['rating'] ?>/5</span>
+                                    </div>
+                                </div>
+                                <p class="mb-2 text-dark"><?= nl2br(htmlspecialchars($review['comment'])) ?></p>
+                                <?php if ($review['image']): ?>
+                                    <div class="mt-2">
+                                        <img src="uploads/reviews/<?= htmlspecialchars($review['image']) ?>" 
+                                             alt="Review image" 
+                                             class="img-thumbnail" 
+                                             style="max-width: 200px; max-height: 200px; cursor: pointer;"
+                                             onclick="window.open(this.src)">
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+
+                        <?php if ($totalReviews > 10): ?>
+                            <div class="text-center mt-3">
+                                <button class="btn btn-outline-primary" onclick="alert('Tính năng xem thêm đánh giá đang được phát triển')">Xem thêm đánh giá</button>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php else: ?>
+                    <div class="text-center py-4">
+                        <i class="fa fa-comments fa-3x text-muted mb-3"></i>
+                        <p class="text-muted">Chưa có đánh giá nào cho sản phẩm này.</p>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
